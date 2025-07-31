@@ -1,0 +1,15 @@
+[package]
+name = "oxc-ast-mcp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rust-mcp-sdk = { version = "0.5.0", default-features = false, features = ["server", "macros", "2025_06_18"] }
+tokio = { version = "1.47.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1.88"
+oxc_allocator = "0.79.0"
+oxc_parser = "0.79.0"
+oxc_semantic = "0.79.0"
+oxc_span = "0.79.0"

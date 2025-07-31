@@ -1,6 +1,5 @@
 use oxc_allocator::Allocator;
 use oxc_parser::{ParseOptions, Parser};
-use oxc_semantic::SemanticBuilder;
 use oxc_span::SourceType;
 use rust_mcp_sdk::{
     macros::{JsonSchema, mcp_tool},

@@ -9,23 +9,22 @@ use std::collections::HashMap;
 use super::StringError;
 
 #[mcp_tool(
-    name = "list",
-    title = "A tool that lists OXC AST nodes.",
+    name = "docs",
+    title = "A tool that shows OXC AST node documentation.",
     description = "Accepts a regex string to filter only matched structs and enums.",
     meta = r#"{"version": "1.0"}"#
 )]
 #[derive(Debug, serde::Deserialize, serde::Serialize, JsonSchema)]
-pub struct ListTool {
+pub struct DocsTool {
     query: Option<String>,
 }
 
-impl ListTool {
+impl DocsTool {
     pub fn call(&self) -> Result<CallToolResult, CallToolError> {
         let Self { query } = self;
 
         // Read /ast-nodes.generated.json
-        let json_content =
-            std::fs::read_to_string("ast-nodes.generated.json").map_err(CallToolError::new)?;
+        let json_content = include_str!("../../ast-nodes.generated.json");
 
         let nodes: HashMap<String, Value> =
             serde_json::from_str(&json_content).map_err(CallToolError::new)?;
@@ -51,8 +50,7 @@ impl ListTool {
             }
             // If query is present, filter nodes by key as regex
             Some(query_str) => {
-                let regex = Regex::new(query_str)
-                    .map_err(|e| CallToolError::new(StringError(format!("Invalid regex: {e}"))))?;
+                let regex = Regex::new(query_str).map_err(CallToolError::new)?;
 
                 // First, try to match by key
                 for (key, node) in &nodes {
@@ -109,15 +107,15 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_list_tool() {
+    fn test_docs_tool() {
         // Match all nodes
-        let tool1 = ListTool {
+        let tool1 = DocsTool {
             query: Some(".*".to_string()),
         };
         // No query, should return all nodes
-        let tool2 = ListTool { query: None };
+        let tool2 = DocsTool { query: None };
 
-        let to_string = |tool: &ListTool| {
+        let to_string = |tool: &DocsTool| {
             tool.call()
                 .unwrap()
                 .content
@@ -132,7 +130,7 @@ mod tests {
 
     #[test]
     fn debug() {
-        let tool = ListTool {
+        let tool = DocsTool {
             query: Some("JSX.*".to_string()),
         };
 
@@ -147,3 +145,4 @@ mod tests {
         }
     }
 }
+

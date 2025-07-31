@@ -11,7 +11,7 @@ use super::StringError;
 #[mcp_tool(
     name = "parse",
     title = "A tool that parses JS(X) or TS(X) code into OXC AST.",
-    description = "Accepts a code snippet and extension. Extension should be one of `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts`, `tsx`.",
+    description = "Accepts a code snippet and extension. Extension should be one of `js`, `mjs`, `cjs`, `jsx`, `ts`, `mts`, `cts`, `tsx`. You can use `docs` tool to see the documentation for each AST node.",
     meta = r#"{"version": "1.0"}"#
 )]
 #[derive(Debug, serde::Deserialize, serde::Serialize, JsonSchema)]

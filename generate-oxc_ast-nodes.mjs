@@ -25,6 +25,7 @@ for (const item of Object.values(docData.index)) {
     items.push({
       type: "struct",
       name: item.name,
+      docs: item.docs ?? "",
       fields: getStructFields(item, docData),
     });
 
@@ -32,6 +33,7 @@ for (const item of Object.values(docData.index)) {
     items.push({
       type: "enum",
       name: item.name,
+      docs: item.docs ?? "",
       variants: getEnumVariants(item, docData),
     });
 }
@@ -42,9 +44,12 @@ const result = Object.fromEntries(
     .sort((a, b) => a.name.localeCompare(b.name))
     .map((item) => [
       item.name,
-      item.type === "struct"
-        ? generateStructDefinition(item)
-        : generateEnumDefinition(item),
+      {
+        docs: item.docs,
+        body: item.type === "struct"
+          ? generateStructDefinition(item)
+          : generateEnumDefinition(item),
+      },
     ]),
 );
 

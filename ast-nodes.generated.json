@@ -1,258 +1,1026 @@
 {
-  "AccessorProperty": "struct AccessorProperty {\n  pub span: oxc_span::Span,\n  pub type: AccessorPropertyType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub value: Option<Expression<'a>>,\n  pub computed: bool,\n  pub static: bool,\n  pub override: bool,\n  pub definite: bool,\n  pub accessibility: Option<TSAccessibility>,\n}",
-  "AccessorPropertyType": "enum AccessorPropertyType {\n  AccessorProperty,\n  TSAbstractAccessorProperty,\n}",
-  "Argument": "enum Argument {\n  SpreadElement(oxc_allocator::Box<'a, SpreadElement<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ArrayAssignmentTarget": "struct ArrayAssignmentTarget {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, Option<AssignmentTargetMaybeDefault<'a>>>,\n  pub rest: Option<AssignmentTargetRest<'a>>,\n}",
-  "ArrayExpression": "struct ArrayExpression {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, ArrayExpressionElement<'a>>,\n}",
-  "ArrayExpressionElement": "enum ArrayExpressionElement {\n  SpreadElement(oxc_allocator::Box<'a, SpreadElement<'a>>),\n  Elision(Elision),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ArrayPattern": "struct ArrayPattern {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, Option<BindingPattern<'a>>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}",
-  "ArrowFunctionExpression": "struct ArrowFunctionExpression {\n  pub span: oxc_span::Span,\n  pub expression: bool,\n  pub async: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub body: oxc_allocator::Box<'a, FunctionBody<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n  pub pure: bool,\n  pub pife: bool,\n}",
-  "AssignmentExpression": "struct AssignmentExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::AssignmentOperator,\n  pub left: AssignmentTarget<'a>,\n  pub right: Expression<'a>,\n}",
-  "AssignmentPattern": "struct AssignmentPattern {\n  pub span: oxc_span::Span,\n  pub left: BindingPattern<'a>,\n  pub right: Expression<'a>,\n}",
-  "AssignmentTarget": "enum AssignmentTarget {\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}",
-  "AssignmentTargetMaybeDefault": "enum AssignmentTargetMaybeDefault {\n  AssignmentTargetWithDefault(oxc_allocator::Box<'a, AssignmentTargetWithDefault<'a>>),\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}",
-  "AssignmentTargetPattern": "enum AssignmentTargetPattern {\n  ArrayAssignmentTarget(oxc_allocator::Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(oxc_allocator::Box<'a, ObjectAssignmentTarget<'a>>),\n}",
-  "AssignmentTargetProperty": "enum AssignmentTargetProperty {\n  AssignmentTargetPropertyIdentifier(oxc_allocator::Box<'a, AssignmentTargetPropertyIdentifier<'a>>),\n  AssignmentTargetPropertyProperty(oxc_allocator::Box<'a, AssignmentTargetPropertyProperty<'a>>),\n}",
-  "AssignmentTargetPropertyIdentifier": "struct AssignmentTargetPropertyIdentifier {\n  pub span: oxc_span::Span,\n  pub binding: IdentifierReference<'a>,\n  pub init: Option<Expression<'a>>,\n}",
-  "AssignmentTargetPropertyProperty": "struct AssignmentTargetPropertyProperty {\n  pub span: oxc_span::Span,\n  pub name: PropertyKey<'a>,\n  pub binding: AssignmentTargetMaybeDefault<'a>,\n  pub computed: bool,\n}",
-  "AssignmentTargetRest": "struct AssignmentTargetRest {\n  pub span: oxc_span::Span,\n  pub target: AssignmentTarget<'a>,\n}",
-  "AssignmentTargetWithDefault": "struct AssignmentTargetWithDefault {\n  pub span: oxc_span::Span,\n  pub binding: AssignmentTarget<'a>,\n  pub init: Expression<'a>,\n}",
-  "AwaitExpression": "struct AwaitExpression {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}",
-  "BigIntLiteral": "struct BigIntLiteral {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub base: oxc_syntax::number::BigintBase,\n}",
-  "BinaryExpression": "struct BinaryExpression {\n  pub span: oxc_span::Span,\n  pub left: Expression<'a>,\n  pub operator: oxc_syntax::operator::BinaryOperator,\n  pub right: Expression<'a>,\n}",
-  "BindingIdentifier": "struct BindingIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub symbol_id: std::cell::Cell<Option<oxc_syntax::symbol::SymbolId>>,\n}",
-  "BindingPattern": "struct BindingPattern {\n  pub kind: BindingPatternKind<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub optional: bool,\n}",
-  "BindingPatternKind": "enum BindingPatternKind {\n  BindingIdentifier(oxc_allocator::Box<'a, BindingIdentifier<'a>>),\n  ObjectPattern(oxc_allocator::Box<'a, ObjectPattern<'a>>),\n  ArrayPattern(oxc_allocator::Box<'a, ArrayPattern<'a>>),\n  AssignmentPattern(oxc_allocator::Box<'a, AssignmentPattern<'a>>),\n}",
-  "BindingProperty": "struct BindingProperty {\n  pub span: oxc_span::Span,\n  pub key: PropertyKey<'a>,\n  pub value: BindingPattern<'a>,\n  pub shorthand: bool,\n  pub computed: bool,\n}",
-  "BindingRestElement": "struct BindingRestElement {\n  pub span: oxc_span::Span,\n  pub argument: BindingPattern<'a>,\n}",
-  "BlockStatement": "struct BlockStatement {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "BooleanLiteral": "struct BooleanLiteral {\n  pub span: oxc_span::Span,\n  pub value: bool,\n}",
-  "BreakStatement": "struct BreakStatement {\n  pub span: oxc_span::Span,\n  pub label: Option<LabelIdentifier<'a>>,\n}",
-  "CallExpression": "struct CallExpression {\n  pub span: oxc_span::Span,\n  pub callee: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n  pub optional: bool,\n  pub pure: bool,\n}",
-  "CatchClause": "struct CatchClause {\n  pub span: oxc_span::Span,\n  pub param: Option<CatchParameter<'a>>,\n  pub body: oxc_allocator::Box<'a, BlockStatement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "CatchParameter": "struct CatchParameter {\n  pub span: oxc_span::Span,\n  pub pattern: BindingPattern<'a>,\n}",
-  "ChainElement": "enum ChainElement {\n  CallExpression(oxc_allocator::Box<'a, CallExpression<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ChainExpression": "struct ChainExpression {\n  pub span: oxc_span::Span,\n  pub expression: ChainElement<'a>,\n}",
-  "Class": "struct Class {\n  pub span: oxc_span::Span,\n  pub type: ClassType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub id: Option<BindingIdentifier<'a>>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub super_class: Option<Expression<'a>>,\n  pub super_type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub implements: oxc_allocator::Vec<'a, TSClassImplements<'a>>,\n  pub body: oxc_allocator::Box<'a, ClassBody<'a>>,\n  pub abstract: bool,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "ClassBody": "struct ClassBody {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, ClassElement<'a>>,\n}",
-  "ClassElement": "enum ClassElement {\n  StaticBlock(oxc_allocator::Box<'a, StaticBlock<'a>>),\n  MethodDefinition(oxc_allocator::Box<'a, MethodDefinition<'a>>),\n  PropertyDefinition(oxc_allocator::Box<'a, PropertyDefinition<'a>>),\n  AccessorProperty(oxc_allocator::Box<'a, AccessorProperty<'a>>),\n  TSIndexSignature(oxc_allocator::Box<'a, TSIndexSignature<'a>>),\n}",
-  "ClassType": "enum ClassType {\n  ClassDeclaration,\n  ClassExpression,\n}",
-  "Comment": "struct Comment {\n  pub span: oxc_span::Span,\n  pub attached_to: u32,\n  pub kind: CommentKind,\n  pub position: CommentPosition,\n  pub newlines: CommentNewlines,\n  pub content: CommentContent,\n}",
-  "CommentContent": "enum CommentContent {\n  None,\n  Legal,\n  Jsdoc,\n  JsdocLegal,\n  Pure,\n  NoSideEffects,\n  Webpack,\n  Vite,\n  CoverageIgnore,\n}",
-  "CommentKind": "enum CommentKind {\n  Line,\n  Block,\n}",
-  "CommentNewlines": "struct CommentNewlines {\n\n}",
-  "CommentPosition": "enum CommentPosition {\n  Leading,\n  Trailing,\n}",
-  "CommentsRange": "struct CommentsRange {\n\n}",
-  "ComputedMemberExpression": "struct ComputedMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub expression: Expression<'a>,\n  pub optional: bool,\n}",
-  "ConditionalExpression": "struct ConditionalExpression {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub consequent: Expression<'a>,\n  pub alternate: Expression<'a>,\n}",
-  "ContinueStatement": "struct ContinueStatement {\n  pub span: oxc_span::Span,\n  pub label: Option<LabelIdentifier<'a>>,\n}",
-  "DebuggerStatement": "struct DebuggerStatement {\n  pub span: oxc_span::Span,\n}",
-  "Declaration": "enum Declaration {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  FunctionDeclaration(oxc_allocator::Box<'a, Function<'a>>),\n  ClassDeclaration(oxc_allocator::Box<'a, Class<'a>>),\n  TSTypeAliasDeclaration(oxc_allocator::Box<'a, TSTypeAliasDeclaration<'a>>),\n  TSInterfaceDeclaration(oxc_allocator::Box<'a, TSInterfaceDeclaration<'a>>),\n  TSEnumDeclaration(oxc_allocator::Box<'a, TSEnumDeclaration<'a>>),\n  TSModuleDeclaration(oxc_allocator::Box<'a, TSModuleDeclaration<'a>>),\n  TSImportEqualsDeclaration(oxc_allocator::Box<'a, TSImportEqualsDeclaration<'a>>),\n}",
-  "Decorator": "struct Decorator {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "Directive": "struct Directive {\n  pub span: oxc_span::Span,\n  pub expression: StringLiteral<'a>,\n  pub directive: oxc_span::Atom<'a>,\n}",
-  "DoWhileStatement": "struct DoWhileStatement {\n  pub span: oxc_span::Span,\n  pub body: Statement<'a>,\n  pub test: Expression<'a>,\n}",
-  "Elision": "struct Elision {\n  pub span: oxc_span::Span,\n}",
-  "EmptyStatement": "struct EmptyStatement {\n  pub span: oxc_span::Span,\n}",
-  "ExportAllDeclaration": "struct ExportAllDeclaration {\n  pub span: oxc_span::Span,\n  pub exported: Option<ModuleExportName<'a>>,\n  pub source: StringLiteral<'a>,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n  pub export_kind: ImportOrExportKind,\n}",
-  "ExportDefaultDeclaration": "struct ExportDefaultDeclaration {\n  pub span: oxc_span::Span,\n  pub exported: ModuleExportName<'a>,\n  pub declaration: ExportDefaultDeclarationKind<'a>,\n}",
-  "ExportDefaultDeclarationKind": "enum ExportDefaultDeclarationKind {\n  FunctionDeclaration(oxc_allocator::Box<'a, Function<'a>>),\n  ClassDeclaration(oxc_allocator::Box<'a, Class<'a>>),\n  TSInterfaceDeclaration(oxc_allocator::Box<'a, TSInterfaceDeclaration<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ExportNamedDeclaration": "struct ExportNamedDeclaration {\n  pub span: oxc_span::Span,\n  pub declaration: Option<Declaration<'a>>,\n  pub specifiers: oxc_allocator::Vec<'a, ExportSpecifier<'a>>,\n  pub source: Option<StringLiteral<'a>>,\n  pub export_kind: ImportOrExportKind,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n}",
-  "ExportSpecifier": "struct ExportSpecifier {\n  pub span: oxc_span::Span,\n  pub local: ModuleExportName<'a>,\n  pub exported: ModuleExportName<'a>,\n  pub export_kind: ImportOrExportKind,\n}",
-  "Expression": "enum Expression {\n  BooleanLiteral(oxc_allocator::Box<'a, BooleanLiteral>),\n  NullLiteral(oxc_allocator::Box<'a, NullLiteral>),\n  NumericLiteral(oxc_allocator::Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(oxc_allocator::Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(oxc_allocator::Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n  Identifier(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  MetaProperty(oxc_allocator::Box<'a, MetaProperty<'a>>),\n  Super(oxc_allocator::Box<'a, Super>),\n  ArrayExpression(oxc_allocator::Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(oxc_allocator::Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(oxc_allocator::Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(oxc_allocator::Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(oxc_allocator::Box<'a, BinaryExpression<'a>>),\n  CallExpression(oxc_allocator::Box<'a, CallExpression<'a>>),\n  ChainExpression(oxc_allocator::Box<'a, ChainExpression<'a>>),\n  ClassExpression(oxc_allocator::Box<'a, Class<'a>>),\n  ConditionalExpression(oxc_allocator::Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(oxc_allocator::Box<'a, Function<'a>>),\n  ImportExpression(oxc_allocator::Box<'a, ImportExpression<'a>>),\n  LogicalExpression(oxc_allocator::Box<'a, LogicalExpression<'a>>),\n  NewExpression(oxc_allocator::Box<'a, NewExpression<'a>>),\n  ObjectExpression(oxc_allocator::Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(oxc_allocator::Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(oxc_allocator::Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(oxc_allocator::Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n  UnaryExpression(oxc_allocator::Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(oxc_allocator::Box<'a, UpdateExpression<'a>>),\n  YieldExpression(oxc_allocator::Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(oxc_allocator::Box<'a, PrivateInExpression<'a>>),\n  JSXElement(oxc_allocator::Box<'a, JSXElement<'a>>),\n  JSXFragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n  TSAsExpression(oxc_allocator::Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(oxc_allocator::Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(oxc_allocator::Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(oxc_allocator::Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(oxc_allocator::Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ExpressionStatement": "struct ExpressionStatement {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "ForInStatement": "struct ForInStatement {\n  pub span: oxc_span::Span,\n  pub left: ForStatementLeft<'a>,\n  pub right: Expression<'a>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "FormalParameter": "struct FormalParameter {\n  pub span: oxc_span::Span,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub pattern: BindingPattern<'a>,\n  pub accessibility: Option<TSAccessibility>,\n  pub readonly: bool,\n  pub override: bool,\n}",
-  "FormalParameterKind": "enum FormalParameterKind {\n  FormalParameter,\n  UniqueFormalParameters,\n  ArrowFormalParameters,\n  Signature,\n}",
-  "FormalParameters": "struct FormalParameters {\n  pub span: oxc_span::Span,\n  pub kind: FormalParameterKind,\n  pub items: oxc_allocator::Vec<'a, FormalParameter<'a>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}",
-  "ForOfStatement": "struct ForOfStatement {\n  pub span: oxc_span::Span,\n  pub await: bool,\n  pub left: ForStatementLeft<'a>,\n  pub right: Expression<'a>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "ForStatement": "struct ForStatement {\n  pub span: oxc_span::Span,\n  pub init: Option<ForStatementInit<'a>>,\n  pub test: Option<Expression<'a>>,\n  pub update: Option<Expression<'a>>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "ForStatementInit": "enum ForStatementInit {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "ForStatementLeft": "enum ForStatementLeft {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}",
-  "Function": "struct Function {\n  pub span: oxc_span::Span,\n  pub type: FunctionType,\n  pub id: Option<BindingIdentifier<'a>>,\n  pub generator: bool,\n  pub async: bool,\n  pub declare: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub body: Option<oxc_allocator::Box<'a, FunctionBody<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n  pub pure: bool,\n  pub pife: bool,\n}",
-  "FunctionBody": "struct FunctionBody {\n  pub span: oxc_span::Span,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub statements: oxc_allocator::Vec<'a, Statement<'a>>,\n}",
-  "FunctionType": "enum FunctionType {\n  FunctionDeclaration,\n  FunctionExpression,\n  TSDeclareFunction,\n  TSEmptyBodyFunctionExpression,\n}",
-  "Hashbang": "struct Hashbang {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n}",
-  "IdentifierName": "struct IdentifierName {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}",
-  "IdentifierReference": "struct IdentifierReference {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub reference_id: std::cell::Cell<Option<oxc_syntax::reference::ReferenceId>>,\n}",
-  "IfStatement": "struct IfStatement {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub consequent: Statement<'a>,\n  pub alternate: Option<Statement<'a>>,\n}",
-  "ImportAttribute": "struct ImportAttribute {\n  pub span: oxc_span::Span,\n  pub key: ImportAttributeKey<'a>,\n  pub value: StringLiteral<'a>,\n}",
-  "ImportAttributeKey": "enum ImportAttributeKey {\n  Identifier(IdentifierName<'a>),\n  StringLiteral(StringLiteral<'a>),\n}",
-  "ImportDeclaration": "struct ImportDeclaration {\n  pub span: oxc_span::Span,\n  pub specifiers: Option<oxc_allocator::Vec<'a, ImportDeclarationSpecifier<'a>>>,\n  pub source: StringLiteral<'a>,\n  pub phase: Option<ImportPhase>,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n  pub import_kind: ImportOrExportKind,\n}",
-  "ImportDeclarationSpecifier": "enum ImportDeclarationSpecifier {\n  ImportSpecifier(oxc_allocator::Box<'a, ImportSpecifier<'a>>),\n  ImportDefaultSpecifier(oxc_allocator::Box<'a, ImportDefaultSpecifier<'a>>),\n  ImportNamespaceSpecifier(oxc_allocator::Box<'a, ImportNamespaceSpecifier<'a>>),\n}",
-  "ImportDefaultSpecifier": "struct ImportDefaultSpecifier {\n  pub span: oxc_span::Span,\n  pub local: BindingIdentifier<'a>,\n}",
-  "ImportExpression": "struct ImportExpression {\n  pub span: oxc_span::Span,\n  pub source: Expression<'a>,\n  pub options: Option<Expression<'a>>,\n  pub phase: Option<ImportPhase>,\n}",
-  "ImportNamespaceSpecifier": "struct ImportNamespaceSpecifier {\n  pub span: oxc_span::Span,\n  pub local: BindingIdentifier<'a>,\n}",
-  "ImportOrExportKind": "enum ImportOrExportKind {\n  Value,\n  Type,\n}",
-  "ImportPhase": "enum ImportPhase {\n  Source,\n  Defer,\n}",
-  "ImportSpecifier": "struct ImportSpecifier {\n  pub span: oxc_span::Span,\n  pub imported: ModuleExportName<'a>,\n  pub local: BindingIdentifier<'a>,\n  pub import_kind: ImportOrExportKind,\n}",
-  "JSDocNonNullableType": "struct JSDocNonNullableType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub postfix: bool,\n}",
-  "JSDocNullableType": "struct JSDocNullableType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub postfix: bool,\n}",
-  "JSDocUnknownType": "struct JSDocUnknownType {\n  pub span: oxc_span::Span,\n}",
-  "JSXAttribute": "struct JSXAttribute {\n  pub span: oxc_span::Span,\n  pub name: JSXAttributeName<'a>,\n  pub value: Option<JSXAttributeValue<'a>>,\n}",
-  "JSXAttributeItem": "enum JSXAttributeItem {\n  Attribute(oxc_allocator::Box<'a, JSXAttribute<'a>>),\n  SpreadAttribute(oxc_allocator::Box<'a, JSXSpreadAttribute<'a>>),\n}",
-  "JSXAttributeName": "enum JSXAttributeName {\n  Identifier(oxc_allocator::Box<'a, JSXIdentifier<'a>>),\n  NamespacedName(oxc_allocator::Box<'a, JSXNamespacedName<'a>>),\n}",
-  "JSXAttributeValue": "enum JSXAttributeValue {\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ExpressionContainer(oxc_allocator::Box<'a, JSXExpressionContainer<'a>>),\n  Element(oxc_allocator::Box<'a, JSXElement<'a>>),\n  Fragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n}",
-  "JSXChild": "enum JSXChild {\n  Text(oxc_allocator::Box<'a, JSXText<'a>>),\n  Element(oxc_allocator::Box<'a, JSXElement<'a>>),\n  Fragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n  ExpressionContainer(oxc_allocator::Box<'a, JSXExpressionContainer<'a>>),\n  Spread(oxc_allocator::Box<'a, JSXSpreadChild<'a>>),\n}",
-  "JSXClosingElement": "struct JSXClosingElement {\n  pub span: oxc_span::Span,\n  pub name: JSXElementName<'a>,\n}",
-  "JSXClosingFragment": "struct JSXClosingFragment {\n  pub span: oxc_span::Span,\n}",
-  "JSXElement": "struct JSXElement {\n  pub span: oxc_span::Span,\n  pub opening_element: oxc_allocator::Box<'a, JSXOpeningElement<'a>>,\n  pub children: oxc_allocator::Vec<'a, JSXChild<'a>>,\n  pub closing_element: Option<oxc_allocator::Box<'a, JSXClosingElement<'a>>>,\n}",
-  "JSXElementName": "enum JSXElementName {\n  Identifier(oxc_allocator::Box<'a, JSXIdentifier<'a>>),\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  NamespacedName(oxc_allocator::Box<'a, JSXNamespacedName<'a>>),\n  MemberExpression(oxc_allocator::Box<'a, JSXMemberExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}",
-  "JSXEmptyExpression": "struct JSXEmptyExpression {\n  pub span: oxc_span::Span,\n}",
-  "JSXExpression": "enum JSXExpression {\n  EmptyExpression(JSXEmptyExpression),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "JSXExpressionContainer": "struct JSXExpressionContainer {\n  pub span: oxc_span::Span,\n  pub expression: JSXExpression<'a>,\n}",
-  "JSXFragment": "struct JSXFragment {\n  pub span: oxc_span::Span,\n  pub opening_fragment: JSXOpeningFragment,\n  pub children: oxc_allocator::Vec<'a, JSXChild<'a>>,\n  pub closing_fragment: JSXClosingFragment,\n}",
-  "JSXIdentifier": "struct JSXIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}",
-  "JSXMemberExpression": "struct JSXMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: JSXMemberExpressionObject<'a>,\n  pub property: JSXIdentifier<'a>,\n}",
-  "JSXMemberExpressionObject": "enum JSXMemberExpressionObject {\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  MemberExpression(oxc_allocator::Box<'a, JSXMemberExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}",
-  "JSXNamespacedName": "struct JSXNamespacedName {\n  pub span: oxc_span::Span,\n  pub namespace: JSXIdentifier<'a>,\n  pub name: JSXIdentifier<'a>,\n}",
-  "JSXOpeningElement": "struct JSXOpeningElement {\n  pub span: oxc_span::Span,\n  pub name: JSXElementName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub attributes: oxc_allocator::Vec<'a, JSXAttributeItem<'a>>,\n}",
-  "JSXOpeningFragment": "struct JSXOpeningFragment {\n  pub span: oxc_span::Span,\n}",
-  "JSXSpreadAttribute": "struct JSXSpreadAttribute {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}",
-  "JSXSpreadChild": "struct JSXSpreadChild {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "JSXText": "struct JSXText {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n}",
-  "LabeledStatement": "struct LabeledStatement {\n  pub span: oxc_span::Span,\n  pub label: LabelIdentifier<'a>,\n  pub body: Statement<'a>,\n}",
-  "LabelIdentifier": "struct LabelIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}",
-  "LogicalExpression": "struct LogicalExpression {\n  pub span: oxc_span::Span,\n  pub left: Expression<'a>,\n  pub operator: oxc_syntax::operator::LogicalOperator,\n  pub right: Expression<'a>,\n}",
-  "MemberExpression": "enum MemberExpression {\n  ComputedMemberExpression(oxc_allocator::Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(oxc_allocator::Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(oxc_allocator::Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "MemberExpressionKind": "enum MemberExpressionKind {\n  Static(&'a StaticMemberExpression<'a>),\n  Computed(&'a ComputedMemberExpression<'a>),\n  PrivateField(&'a PrivateFieldExpression<'a>),\n}",
-  "MetaProperty": "struct MetaProperty {\n  pub span: oxc_span::Span,\n  pub meta: IdentifierName<'a>,\n  pub property: IdentifierName<'a>,\n}",
-  "MethodDefinition": "struct MethodDefinition {\n  pub span: oxc_span::Span,\n  pub type: MethodDefinitionType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub value: oxc_allocator::Box<'a, Function<'a>>,\n  pub kind: MethodDefinitionKind,\n  pub computed: bool,\n  pub static: bool,\n  pub override: bool,\n  pub optional: bool,\n  pub accessibility: Option<TSAccessibility>,\n}",
-  "MethodDefinitionKind": "enum MethodDefinitionKind {\n  Constructor,\n  Method,\n  Get,\n  Set,\n}",
-  "MethodDefinitionType": "enum MethodDefinitionType {\n  MethodDefinition,\n  TSAbstractMethodDefinition,\n}",
-  "ModuleDeclaration": "enum ModuleDeclaration {\n  ImportDeclaration(oxc_allocator::Box<'a, ImportDeclaration<'a>>),\n  ExportAllDeclaration(oxc_allocator::Box<'a, ExportAllDeclaration<'a>>),\n  ExportDefaultDeclaration(oxc_allocator::Box<'a, ExportDefaultDeclaration<'a>>),\n  ExportNamedDeclaration(oxc_allocator::Box<'a, ExportNamedDeclaration<'a>>),\n  TSExportAssignment(oxc_allocator::Box<'a, TSExportAssignment<'a>>),\n  TSNamespaceExportDeclaration(oxc_allocator::Box<'a, TSNamespaceExportDeclaration<'a>>),\n}",
-  "ModuleDeclarationKind": "enum ModuleDeclarationKind {\n  Import(&'a ImportDeclaration<'a>),\n  ExportAll(&'a ExportAllDeclaration<'a>),\n  ExportNamed(&'a ExportNamedDeclaration<'a>),\n  ExportDefault(&'a ExportDefaultDeclaration<'a>),\n  TSExportAssignment(&'a TSExportAssignment<'a>),\n  TSNamespaceExport(&'a TSNamespaceExportDeclaration<'a>),\n}",
-  "ModuleExportName": "enum ModuleExportName {\n  IdentifierName(IdentifierName<'a>),\n  IdentifierReference(IdentifierReference<'a>),\n  StringLiteral(StringLiteral<'a>),\n}",
-  "NewExpression": "struct NewExpression {\n  pub span: oxc_span::Span,\n  pub callee: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n  pub pure: bool,\n}",
-  "NullLiteral": "struct NullLiteral {\n  pub span: oxc_span::Span,\n}",
-  "NumericLiteral": "struct NumericLiteral {\n  pub span: oxc_span::Span,\n  pub value: f64,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub base: oxc_syntax::number::NumberBase,\n}",
-  "ObjectAssignmentTarget": "struct ObjectAssignmentTarget {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, AssignmentTargetProperty<'a>>,\n  pub rest: Option<AssignmentTargetRest<'a>>,\n}",
-  "ObjectExpression": "struct ObjectExpression {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, ObjectPropertyKind<'a>>,\n}",
-  "ObjectPattern": "struct ObjectPattern {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, BindingProperty<'a>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}",
-  "ObjectProperty": "struct ObjectProperty {\n  pub span: oxc_span::Span,\n  pub kind: PropertyKind,\n  pub key: PropertyKey<'a>,\n  pub value: Expression<'a>,\n  pub method: bool,\n  pub shorthand: bool,\n  pub computed: bool,\n}",
-  "ObjectPropertyKind": "enum ObjectPropertyKind {\n  ObjectProperty(oxc_allocator::Box<'a, ObjectProperty<'a>>),\n  SpreadProperty(oxc_allocator::Box<'a, SpreadElement<'a>>),\n}",
-  "ParenthesizedExpression": "struct ParenthesizedExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "PrivateFieldExpression": "struct PrivateFieldExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub field: PrivateIdentifier<'a>,\n  pub optional: bool,\n}",
-  "PrivateIdentifier": "struct PrivateIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}",
-  "PrivateInExpression": "struct PrivateInExpression {\n  pub span: oxc_span::Span,\n  pub left: PrivateIdentifier<'a>,\n  pub right: Expression<'a>,\n}",
-  "Program": "struct Program {\n  pub span: oxc_span::Span,\n  pub source_type: oxc_span::SourceType,\n  pub source_text: &'a str,\n  pub comments: oxc_allocator::Vec<'a, Comment>,\n  pub hashbang: Option<Hashbang<'a>>,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "PropertyDefinition": "struct PropertyDefinition {\n  pub span: oxc_span::Span,\n  pub type: PropertyDefinitionType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub value: Option<Expression<'a>>,\n  pub computed: bool,\n  pub static: bool,\n  pub declare: bool,\n  pub override: bool,\n  pub optional: bool,\n  pub definite: bool,\n  pub readonly: bool,\n  pub accessibility: Option<TSAccessibility>,\n}",
-  "PropertyDefinitionType": "enum PropertyDefinitionType {\n  PropertyDefinition,\n  TSAbstractPropertyDefinition,\n}",
-  "PropertyKey": "enum PropertyKey {\n  StaticIdentifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  PrivateIdentifier(oxc_allocator::Box<'a, PrivateIdentifier<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "PropertyKeyKind": "enum PropertyKeyKind {\n  Static(&'a IdentifierName<'a>),\n  Private(&'a PrivateIdentifier<'a>),\n}",
-  "PropertyKind": "enum PropertyKind {\n  Init,\n  Get,\n  Set,\n}",
-  "RegExp": "struct RegExp {\n  pub pattern: RegExpPattern<'a>,\n  pub flags: RegExpFlags,\n}",
-  "RegExpFlags": "struct RegExpFlags {\n\n}",
-  "RegExpLiteral": "struct RegExpLiteral {\n  pub span: oxc_span::Span,\n  pub regex: RegExp<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n}",
-  "RegExpPattern": "struct RegExpPattern {\n  pub text: oxc_span::Atom<'a>,\n  pub pattern: Option<oxc_allocator::Box<'a, oxc_regular_expression::ast::Pattern<'a>>>,\n}",
-  "ReturnStatement": "struct ReturnStatement {\n  pub span: oxc_span::Span,\n  pub argument: Option<Expression<'a>>,\n}",
-  "SequenceExpression": "struct SequenceExpression {\n  pub span: oxc_span::Span,\n  pub expressions: oxc_allocator::Vec<'a, Expression<'a>>,\n}",
-  "SimpleAssignmentTarget": "enum SimpleAssignmentTarget {\n  AssignmentTargetIdentifier(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(oxc_allocator::Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(oxc_allocator::Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(oxc_allocator::Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}",
-  "SpreadElement": "struct SpreadElement {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}",
-  "Statement": "enum Statement {\n  BlockStatement(oxc_allocator::Box<'a, BlockStatement<'a>>),\n  BreakStatement(oxc_allocator::Box<'a, BreakStatement<'a>>),\n  ContinueStatement(oxc_allocator::Box<'a, ContinueStatement<'a>>),\n  DebuggerStatement(oxc_allocator::Box<'a, DebuggerStatement>),\n  DoWhileStatement(oxc_allocator::Box<'a, DoWhileStatement<'a>>),\n  EmptyStatement(oxc_allocator::Box<'a, EmptyStatement>),\n  ExpressionStatement(oxc_allocator::Box<'a, ExpressionStatement<'a>>),\n  ForInStatement(oxc_allocator::Box<'a, ForInStatement<'a>>),\n  ForOfStatement(oxc_allocator::Box<'a, ForOfStatement<'a>>),\n  ForStatement(oxc_allocator::Box<'a, ForStatement<'a>>),\n  IfStatement(oxc_allocator::Box<'a, IfStatement<'a>>),\n  LabeledStatement(oxc_allocator::Box<'a, LabeledStatement<'a>>),\n  ReturnStatement(oxc_allocator::Box<'a, ReturnStatement<'a>>),\n  SwitchStatement(oxc_allocator::Box<'a, SwitchStatement<'a>>),\n  ThrowStatement(oxc_allocator::Box<'a, ThrowStatement<'a>>),\n  TryStatement(oxc_allocator::Box<'a, TryStatement<'a>>),\n  WhileStatement(oxc_allocator::Box<'a, WhileStatement<'a>>),\n  WithStatement(oxc_allocator::Box<'a, WithStatement<'a>>),\n  VariableDeclaration(Box<'a, VariableDeclaration<'a>>),\n  FunctionDeclaration(Box<'a, Function<'a>>),\n  ClassDeclaration(Box<'a, Class<'a>>),\n  TSTypeAliasDeclaration(Box<'a, TSTypeAliasDeclaration<'a>>),\n  TSInterfaceDeclaration(Box<'a, TSInterfaceDeclaration<'a>>),\n  TSEnumDeclaration(Box<'a, TSEnumDeclaration<'a>>),\n  TSModuleDeclaration(Box<'a, TSModuleDeclaration<'a>>),\n  TSImportEqualsDeclaration(Box<'a, TSImportEqualsDeclaration<'a>>),\n  ImportDeclaration(Box<'a, ImportDeclaration<'a>>),\n  ExportAllDeclaration(Box<'a, ExportAllDeclaration<'a>>),\n  ExportDefaultDeclaration(Box<'a, ExportDefaultDeclaration<'a>>),\n  ExportNamedDeclaration(Box<'a, ExportNamedDeclaration<'a>>),\n  TSExportAssignment(Box<'a, TSExportAssignment<'a>>),\n  TSNamespaceExportDeclaration(Box<'a, TSNamespaceExportDeclaration<'a>>),\n}",
-  "StaticBlock": "struct StaticBlock {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "StaticMemberExpression": "struct StaticMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub property: IdentifierName<'a>,\n  pub optional: bool,\n}",
-  "StringLiteral": "struct StringLiteral {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub lone_surrogates: bool,\n}",
-  "Super": "struct Super {\n  pub span: oxc_span::Span,\n}",
-  "SwitchCase": "struct SwitchCase {\n  pub span: oxc_span::Span,\n  pub test: Option<Expression<'a>>,\n  pub consequent: oxc_allocator::Vec<'a, Statement<'a>>,\n}",
-  "SwitchStatement": "struct SwitchStatement {\n  pub span: oxc_span::Span,\n  pub discriminant: Expression<'a>,\n  pub cases: oxc_allocator::Vec<'a, SwitchCase<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TaggedTemplateExpression": "struct TaggedTemplateExpression {\n  pub span: oxc_span::Span,\n  pub tag: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub quasi: TemplateLiteral<'a>,\n}",
-  "TemplateElement": "struct TemplateElement {\n  pub span: oxc_span::Span,\n  pub value: TemplateElementValue<'a>,\n  pub tail: bool,\n  pub lone_surrogates: bool,\n}",
-  "TemplateElementValue": "struct TemplateElementValue {\n  pub raw: oxc_span::Atom<'a>,\n  pub cooked: Option<oxc_span::Atom<'a>>,\n}",
-  "TemplateLiteral": "struct TemplateLiteral {\n  pub span: oxc_span::Span,\n  pub quasis: oxc_allocator::Vec<'a, TemplateElement<'a>>,\n  pub expressions: oxc_allocator::Vec<'a, Expression<'a>>,\n}",
-  "ThisExpression": "struct ThisExpression {\n  pub span: oxc_span::Span,\n}",
-  "ThrowStatement": "struct ThrowStatement {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}",
-  "TryStatement": "struct TryStatement {\n  pub span: oxc_span::Span,\n  pub block: oxc_allocator::Box<'a, BlockStatement<'a>>,\n  pub handler: Option<oxc_allocator::Box<'a, CatchClause<'a>>>,\n  pub finalizer: Option<oxc_allocator::Box<'a, BlockStatement<'a>>>,\n}",
-  "TSAccessibility": "enum TSAccessibility {\n  Private,\n  Protected,\n  Public,\n}",
-  "TSAnyKeyword": "struct TSAnyKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSArrayType": "struct TSArrayType {\n  pub span: oxc_span::Span,\n  pub element_type: TSType<'a>,\n}",
-  "TSAsExpression": "struct TSAsExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSBigIntKeyword": "struct TSBigIntKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSBooleanKeyword": "struct TSBooleanKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSCallSignatureDeclaration": "struct TSCallSignatureDeclaration {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}",
-  "TSClassImplements": "struct TSClassImplements {\n  pub span: oxc_span::Span,\n  pub expression: TSTypeName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}",
-  "TSConditionalType": "struct TSConditionalType {\n  pub span: oxc_span::Span,\n  pub check_type: TSType<'a>,\n  pub extends_type: TSType<'a>,\n  pub true_type: TSType<'a>,\n  pub false_type: TSType<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSConstructorType": "struct TSConstructorType {\n  pub span: oxc_span::Span,\n  pub abstract: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n}",
-  "TSConstructSignatureDeclaration": "struct TSConstructSignatureDeclaration {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSEnumBody": "struct TSEnumBody {\n  pub span: oxc_span::Span,\n  pub members: oxc_allocator::Vec<'a, TSEnumMember<'a>>,\n}",
-  "TSEnumDeclaration": "struct TSEnumDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub body: TSEnumBody<'a>,\n  pub const: bool,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSEnumMember": "struct TSEnumMember {\n  pub span: oxc_span::Span,\n  pub id: TSEnumMemberName<'a>,\n  pub initializer: Option<Expression<'a>>,\n}",
-  "TSEnumMemberName": "enum TSEnumMemberName {\n  Identifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  String(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ComputedString(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ComputedTemplateString(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n}",
-  "TSExportAssignment": "struct TSExportAssignment {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "TSExternalModuleReference": "struct TSExternalModuleReference {\n  pub span: oxc_span::Span,\n  pub expression: StringLiteral<'a>,\n}",
-  "TSFunctionType": "struct TSFunctionType {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSImportEqualsDeclaration": "struct TSImportEqualsDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub module_reference: TSModuleReference<'a>,\n  pub import_kind: ImportOrExportKind,\n}",
-  "TSImportType": "struct TSImportType {\n  pub span: oxc_span::Span,\n  pub argument: TSType<'a>,\n  pub options: Option<oxc_allocator::Box<'a, ObjectExpression<'a>>>,\n  pub qualifier: Option<TSTypeName<'a>>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}",
-  "TSIndexedAccessType": "struct TSIndexedAccessType {\n  pub span: oxc_span::Span,\n  pub object_type: TSType<'a>,\n  pub index_type: TSType<'a>,\n}",
-  "TSIndexSignature": "struct TSIndexSignature {\n  pub span: oxc_span::Span,\n  pub parameters: oxc_allocator::Vec<'a, TSIndexSignatureName<'a>>,\n  pub type_annotation: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n  pub readonly: bool,\n  pub static: bool,\n}",
-  "TSIndexSignatureName": "struct TSIndexSignatureName {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub type_annotation: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n}",
-  "TSInferType": "struct TSInferType {\n  pub span: oxc_span::Span,\n  pub type_parameter: oxc_allocator::Box<'a, TSTypeParameter<'a>>,\n}",
-  "TSInstantiationExpression": "struct TSInstantiationExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_arguments: oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>,\n}",
-  "TSInterfaceBody": "struct TSInterfaceBody {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, TSSignature<'a>>,\n}",
-  "TSInterfaceDeclaration": "struct TSInterfaceDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub extends: oxc_allocator::Vec<'a, TSInterfaceHeritage<'a>>,\n  pub body: oxc_allocator::Box<'a, TSInterfaceBody<'a>>,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSInterfaceHeritage": "struct TSInterfaceHeritage {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}",
-  "TSIntersectionType": "struct TSIntersectionType {\n  pub span: oxc_span::Span,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}",
-  "TSIntrinsicKeyword": "struct TSIntrinsicKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSLiteral": "enum TSLiteral {\n  BooleanLiteral(oxc_allocator::Box<'a, BooleanLiteral>),\n  NumericLiteral(oxc_allocator::Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(oxc_allocator::Box<'a, BigIntLiteral<'a>>),\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n  UnaryExpression(oxc_allocator::Box<'a, UnaryExpression<'a>>),\n}",
-  "TSLiteralType": "struct TSLiteralType {\n  pub span: oxc_span::Span,\n  pub literal: TSLiteral<'a>,\n}",
-  "TSMappedType": "struct TSMappedType {\n  pub span: oxc_span::Span,\n  pub type_parameter: oxc_allocator::Box<'a, TSTypeParameter<'a>>,\n  pub name_type: Option<TSType<'a>>,\n  pub type_annotation: Option<TSType<'a>>,\n  pub optional: Option<TSMappedTypeModifierOperator>,\n  pub readonly: Option<TSMappedTypeModifierOperator>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSMappedTypeModifierOperator": "enum TSMappedTypeModifierOperator {\n  True,\n  Plus,\n  Minus,\n}",
-  "TSMethodSignature": "struct TSMethodSignature {\n  pub span: oxc_span::Span,\n  pub key: PropertyKey<'a>,\n  pub computed: bool,\n  pub optional: bool,\n  pub kind: TSMethodSignatureKind,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSMethodSignatureKind": "enum TSMethodSignatureKind {\n  Method,\n  Get,\n  Set,\n}",
-  "TSModuleBlock": "struct TSModuleBlock {\n  pub span: oxc_span::Span,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n}",
-  "TSModuleDeclaration": "struct TSModuleDeclaration {\n  pub span: oxc_span::Span,\n  pub id: TSModuleDeclarationName<'a>,\n  pub body: Option<TSModuleDeclarationBody<'a>>,\n  pub kind: TSModuleDeclarationKind,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSModuleDeclarationBody": "enum TSModuleDeclarationBody {\n  TSModuleDeclaration(oxc_allocator::Box<'a, TSModuleDeclaration<'a>>),\n  TSModuleBlock(oxc_allocator::Box<'a, TSModuleBlock<'a>>),\n}",
-  "TSModuleDeclarationKind": "enum TSModuleDeclarationKind {\n  Global,\n  Module,\n  Namespace,\n}",
-  "TSModuleDeclarationName": "enum TSModuleDeclarationName {\n  Identifier(BindingIdentifier<'a>),\n  StringLiteral(StringLiteral<'a>),\n}",
-  "TSModuleReference": "enum TSModuleReference {\n  ExternalModuleReference(oxc_allocator::Box<'a, TSExternalModuleReference<'a>>),\n  IdentifierReference(Box<'a, IdentifierReference<'a>>),\n  QualifiedName(Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n}",
-  "TSNamedTupleMember": "struct TSNamedTupleMember {\n  pub span: oxc_span::Span,\n  pub label: IdentifierName<'a>,\n  pub element_type: TSTupleElement<'a>,\n  pub optional: bool,\n}",
-  "TSNamespaceExportDeclaration": "struct TSNamespaceExportDeclaration {\n  pub span: oxc_span::Span,\n  pub id: IdentifierName<'a>,\n}",
-  "TSNeverKeyword": "struct TSNeverKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSNonNullExpression": "struct TSNonNullExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}",
-  "TSNullKeyword": "struct TSNullKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSNumberKeyword": "struct TSNumberKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSObjectKeyword": "struct TSObjectKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSOptionalType": "struct TSOptionalType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSParenthesizedType": "struct TSParenthesizedType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSPropertySignature": "struct TSPropertySignature {\n  pub span: oxc_span::Span,\n  pub computed: bool,\n  pub optional: bool,\n  pub readonly: bool,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}",
-  "TSQualifiedName": "struct TSQualifiedName {\n  pub span: oxc_span::Span,\n  pub left: TSTypeName<'a>,\n  pub right: IdentifierName<'a>,\n}",
-  "TSRestType": "struct TSRestType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSSatisfiesExpression": "struct TSSatisfiesExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSSignature": "enum TSSignature {\n  TSIndexSignature(oxc_allocator::Box<'a, TSIndexSignature<'a>>),\n  TSPropertySignature(oxc_allocator::Box<'a, TSPropertySignature<'a>>),\n  TSCallSignatureDeclaration(oxc_allocator::Box<'a, TSCallSignatureDeclaration<'a>>),\n  TSConstructSignatureDeclaration(oxc_allocator::Box<'a, TSConstructSignatureDeclaration<'a>>),\n  TSMethodSignature(oxc_allocator::Box<'a, TSMethodSignature<'a>>),\n}",
-  "TSStringKeyword": "struct TSStringKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSSymbolKeyword": "struct TSSymbolKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSTemplateLiteralType": "struct TSTemplateLiteralType {\n  pub span: oxc_span::Span,\n  pub quasis: oxc_allocator::Vec<'a, TemplateElement<'a>>,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}",
-  "TSThisParameter": "struct TSThisParameter {\n  pub span: oxc_span::Span,\n  pub this_span: oxc_span::Span,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}",
-  "TSThisType": "struct TSThisType {\n  pub span: oxc_span::Span,\n}",
-  "TSTupleElement": "enum TSTupleElement {\n  TSOptionalType(oxc_allocator::Box<'a, TSOptionalType<'a>>),\n  TSRestType(oxc_allocator::Box<'a, TSRestType<'a>>),\n  TSAnyKeyword(Box<'a, TSAnyKeyword>),\n  TSBigIntKeyword(Box<'a, TSBigIntKeyword>),\n  TSBooleanKeyword(Box<'a, TSBooleanKeyword>),\n  TSIntrinsicKeyword(Box<'a, TSIntrinsicKeyword>),\n  TSNeverKeyword(Box<'a, TSNeverKeyword>),\n  TSNullKeyword(Box<'a, TSNullKeyword>),\n  TSNumberKeyword(Box<'a, TSNumberKeyword>),\n  TSObjectKeyword(Box<'a, TSObjectKeyword>),\n  TSStringKeyword(Box<'a, TSStringKeyword>),\n  TSSymbolKeyword(Box<'a, TSSymbolKeyword>),\n  TSThisType(Box<'a, TSThisType>),\n  TSUndefinedKeyword(Box<'a, TSUndefinedKeyword>),\n  TSUnknownKeyword(Box<'a, TSUnknownKeyword>),\n  TSVoidKeyword(Box<'a, TSVoidKeyword>),\n  TSArrayType(Box<'a, TSArrayType<'a>>),\n  TSConditionalType(Box<'a, TSConditionalType<'a>>),\n  TSConstructorType(Box<'a, TSConstructorType<'a>>),\n  TSFunctionType(Box<'a, TSFunctionType<'a>>),\n  TSImportType(Box<'a, TSImportType<'a>>),\n  TSIndexedAccessType(Box<'a, TSIndexedAccessType<'a>>),\n  TSInferType(Box<'a, TSInferType<'a>>),\n  TSIntersectionType(Box<'a, TSIntersectionType<'a>>),\n  TSLiteralType(Box<'a, TSLiteralType<'a>>),\n  TSMappedType(Box<'a, TSMappedType<'a>>),\n  TSNamedTupleMember(Box<'a, TSNamedTupleMember<'a>>),\n  TSTemplateLiteralType(Box<'a, TSTemplateLiteralType<'a>>),\n  TSTupleType(Box<'a, TSTupleType<'a>>),\n  TSTypeLiteral(Box<'a, TSTypeLiteral<'a>>),\n  TSTypeOperatorType(Box<'a, TSTypeOperator<'a>>),\n  TSTypePredicate(Box<'a, TSTypePredicate<'a>>),\n  TSTypeQuery(Box<'a, TSTypeQuery<'a>>),\n  TSTypeReference(Box<'a, TSTypeReference<'a>>),\n  TSUnionType(Box<'a, TSUnionType<'a>>),\n  TSParenthesizedType(Box<'a, TSParenthesizedType<'a>>),\n  JSDocNullableType(Box<'a, JSDocNullableType<'a>>),\n  JSDocNonNullableType(Box<'a, JSDocNonNullableType<'a>>),\n  JSDocUnknownType(Box<'a, JSDocUnknownType>),\n}",
-  "TSTupleType": "struct TSTupleType {\n  pub span: oxc_span::Span,\n  pub element_types: oxc_allocator::Vec<'a, TSTupleElement<'a>>,\n}",
-  "TSType": "enum TSType {\n  TSAnyKeyword(oxc_allocator::Box<'a, TSAnyKeyword>),\n  TSBigIntKeyword(oxc_allocator::Box<'a, TSBigIntKeyword>),\n  TSBooleanKeyword(oxc_allocator::Box<'a, TSBooleanKeyword>),\n  TSIntrinsicKeyword(oxc_allocator::Box<'a, TSIntrinsicKeyword>),\n  TSNeverKeyword(oxc_allocator::Box<'a, TSNeverKeyword>),\n  TSNullKeyword(oxc_allocator::Box<'a, TSNullKeyword>),\n  TSNumberKeyword(oxc_allocator::Box<'a, TSNumberKeyword>),\n  TSObjectKeyword(oxc_allocator::Box<'a, TSObjectKeyword>),\n  TSStringKeyword(oxc_allocator::Box<'a, TSStringKeyword>),\n  TSSymbolKeyword(oxc_allocator::Box<'a, TSSymbolKeyword>),\n  TSUndefinedKeyword(oxc_allocator::Box<'a, TSUndefinedKeyword>),\n  TSUnknownKeyword(oxc_allocator::Box<'a, TSUnknownKeyword>),\n  TSVoidKeyword(oxc_allocator::Box<'a, TSVoidKeyword>),\n  TSArrayType(oxc_allocator::Box<'a, TSArrayType<'a>>),\n  TSConditionalType(oxc_allocator::Box<'a, TSConditionalType<'a>>),\n  TSConstructorType(oxc_allocator::Box<'a, TSConstructorType<'a>>),\n  TSFunctionType(oxc_allocator::Box<'a, TSFunctionType<'a>>),\n  TSImportType(oxc_allocator::Box<'a, TSImportType<'a>>),\n  TSIndexedAccessType(oxc_allocator::Box<'a, TSIndexedAccessType<'a>>),\n  TSInferType(oxc_allocator::Box<'a, TSInferType<'a>>),\n  TSIntersectionType(oxc_allocator::Box<'a, TSIntersectionType<'a>>),\n  TSLiteralType(oxc_allocator::Box<'a, TSLiteralType<'a>>),\n  TSMappedType(oxc_allocator::Box<'a, TSMappedType<'a>>),\n  TSNamedTupleMember(oxc_allocator::Box<'a, TSNamedTupleMember<'a>>),\n  TSTemplateLiteralType(oxc_allocator::Box<'a, TSTemplateLiteralType<'a>>),\n  TSThisType(oxc_allocator::Box<'a, TSThisType>),\n  TSTupleType(oxc_allocator::Box<'a, TSTupleType<'a>>),\n  TSTypeLiteral(oxc_allocator::Box<'a, TSTypeLiteral<'a>>),\n  TSTypeOperatorType(oxc_allocator::Box<'a, TSTypeOperator<'a>>),\n  TSTypePredicate(oxc_allocator::Box<'a, TSTypePredicate<'a>>),\n  TSTypeQuery(oxc_allocator::Box<'a, TSTypeQuery<'a>>),\n  TSTypeReference(oxc_allocator::Box<'a, TSTypeReference<'a>>),\n  TSUnionType(oxc_allocator::Box<'a, TSUnionType<'a>>),\n  TSParenthesizedType(oxc_allocator::Box<'a, TSParenthesizedType<'a>>),\n  JSDocNullableType(oxc_allocator::Box<'a, JSDocNullableType<'a>>),\n  JSDocNonNullableType(oxc_allocator::Box<'a, JSDocNonNullableType<'a>>),\n  JSDocUnknownType(oxc_allocator::Box<'a, JSDocUnknownType>),\n}",
-  "TSTypeAliasDeclaration": "struct TSTypeAliasDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub type_annotation: TSType<'a>,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}",
-  "TSTypeAnnotation": "struct TSTypeAnnotation {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSTypeAssertion": "struct TSTypeAssertion {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub expression: Expression<'a>,\n}",
-  "TSTypeLiteral": "struct TSTypeLiteral {\n  pub span: oxc_span::Span,\n  pub members: oxc_allocator::Vec<'a, TSSignature<'a>>,\n}",
-  "TSTypeName": "enum TSTypeName {\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  QualifiedName(oxc_allocator::Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}",
-  "TSTypeOperator": "struct TSTypeOperator {\n  pub span: oxc_span::Span,\n  pub operator: TSTypeOperatorOperator,\n  pub type_annotation: TSType<'a>,\n}",
-  "TSTypeOperatorOperator": "enum TSTypeOperatorOperator {\n  Keyof,\n  Unique,\n  Readonly,\n}",
-  "TSTypeParameter": "struct TSTypeParameter {\n  pub span: oxc_span::Span,\n  pub name: BindingIdentifier<'a>,\n  pub constraint: Option<TSType<'a>>,\n  pub default: Option<TSType<'a>>,\n  pub in: bool,\n  pub out: bool,\n  pub const: bool,\n}",
-  "TSTypeParameterDeclaration": "struct TSTypeParameterDeclaration {\n  pub span: oxc_span::Span,\n  pub params: oxc_allocator::Vec<'a, TSTypeParameter<'a>>,\n}",
-  "TSTypeParameterInstantiation": "struct TSTypeParameterInstantiation {\n  pub span: oxc_span::Span,\n  pub params: oxc_allocator::Vec<'a, TSType<'a>>,\n}",
-  "TSTypePredicate": "struct TSTypePredicate {\n  pub span: oxc_span::Span,\n  pub parameter_name: TSTypePredicateName<'a>,\n  pub asserts: bool,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}",
-  "TSTypePredicateName": "enum TSTypePredicateName {\n  Identifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  This(TSThisType),\n}",
-  "TSTypeQuery": "struct TSTypeQuery {\n  pub span: oxc_span::Span,\n  pub expr_name: TSTypeQueryExprName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}",
-  "TSTypeQueryExprName": "enum TSTypeQueryExprName {\n  TSImportType(oxc_allocator::Box<'a, TSImportType<'a>>),\n  IdentifierReference(Box<'a, IdentifierReference<'a>>),\n  QualifiedName(Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n}",
-  "TSTypeReference": "struct TSTypeReference {\n  pub span: oxc_span::Span,\n  pub type_name: TSTypeName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}",
-  "TSUndefinedKeyword": "struct TSUndefinedKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSUnionType": "struct TSUnionType {\n  pub span: oxc_span::Span,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}",
-  "TSUnknownKeyword": "struct TSUnknownKeyword {\n  pub span: oxc_span::Span,\n}",
-  "TSVoidKeyword": "struct TSVoidKeyword {\n  pub span: oxc_span::Span,\n}",
-  "UnaryExpression": "struct UnaryExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::UnaryOperator,\n  pub argument: Expression<'a>,\n}",
-  "UpdateExpression": "struct UpdateExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::UpdateOperator,\n  pub prefix: bool,\n  pub argument: SimpleAssignmentTarget<'a>,\n}",
-  "V8IntrinsicExpression": "struct V8IntrinsicExpression {\n  pub span: oxc_span::Span,\n  pub name: IdentifierName<'a>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n}",
-  "VariableDeclaration": "struct VariableDeclaration {\n  pub span: oxc_span::Span,\n  pub kind: VariableDeclarationKind,\n  pub declarations: oxc_allocator::Vec<'a, VariableDeclarator<'a>>,\n  pub declare: bool,\n}",
-  "VariableDeclarationKind": "enum VariableDeclarationKind {\n  Var,\n  Let,\n  Const,\n  Using,\n  AwaitUsing,\n}",
-  "VariableDeclarator": "struct VariableDeclarator {\n  pub span: oxc_span::Span,\n  pub kind: VariableDeclarationKind,\n  pub id: BindingPattern<'a>,\n  pub init: Option<Expression<'a>>,\n  pub definite: bool,\n}",
-  "WhileStatement": "struct WhileStatement {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub body: Statement<'a>,\n}",
-  "WithClause": "struct WithClause {\n  pub span: oxc_span::Span,\n  pub attributes_keyword: IdentifierName<'a>,\n  pub with_entries: oxc_allocator::Vec<'a, ImportAttribute<'a>>,\n}",
-  "WithStatement": "struct WithStatement {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub body: Statement<'a>,\n}",
-  "YieldExpression": "struct YieldExpression {\n  pub span: oxc_span::Span,\n  pub delegate: bool,\n  pub argument: Option<Expression<'a>>,\n}"
+  "AccessorProperty": {
+    "docs": "Class Accessor Property\n\n## Example\n```ts\nclass Foo {\n  accessor y: string\n}\n```",
+    "body": "struct AccessorProperty {\n  pub span: oxc_span::Span,\n  pub type: AccessorPropertyType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub value: Option<Expression<'a>>,\n  pub computed: bool,\n  pub static: bool,\n  pub override: bool,\n  pub definite: bool,\n  pub accessibility: Option<TSAccessibility>,\n}"
+  },
+  "AccessorPropertyType": {
+    "docs": "",
+    "body": "enum AccessorPropertyType {\n  AccessorProperty,\n  TSAbstractAccessorProperty,\n}"
+  },
+  "Argument": {
+    "docs": "Argument\n\nInherits variants from [`Expression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum Argument {\n  SpreadElement(oxc_allocator::Box<'a, SpreadElement<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ArrayAssignmentTarget": {
+    "docs": "`[a, b]` in `[a, b] = arr;`\n\nRepresents an array assignment target, which can include elements and a rest element.",
+    "body": "struct ArrayAssignmentTarget {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, Option<AssignmentTargetMaybeDefault<'a>>>,\n  pub rest: Option<AssignmentTargetRest<'a>>,\n}"
+  },
+  "ArrayExpression": {
+    "docs": "`[1, 2, ...[3, 4], null]` in `const array = [1, 2, ...[3, 4], null];`\n\nRepresents an array literal, which can include elements, spread elements, or null values.",
+    "body": "struct ArrayExpression {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, ArrayExpressionElement<'a>>,\n}"
+  },
+  "ArrayExpressionElement": {
+    "docs": "Represents a element in an array literal.\n\nInherits variants from [`Expression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum ArrayExpressionElement {\n  SpreadElement(oxc_allocator::Box<'a, SpreadElement<'a>>),\n  Elision(Elision),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ArrayPattern": {
+    "docs": "`[x]` in `const [x] = 1;`\n\nSee other examples in docs for [`BindingPatternKind`].",
+    "body": "struct ArrayPattern {\n  pub span: oxc_span::Span,\n  pub elements: oxc_allocator::Vec<'a, Option<BindingPattern<'a>>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}"
+  },
+  "ArrowFunctionExpression": {
+    "docs": "Arrow Function Definitions",
+    "body": "struct ArrowFunctionExpression {\n  pub span: oxc_span::Span,\n  pub expression: bool,\n  pub async: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub body: oxc_allocator::Box<'a, FunctionBody<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n  pub pure: bool,\n  pub pife: bool,\n}"
+  },
+  "AssignmentExpression": {
+    "docs": "`foo = 1` in `let foo; foo = 1;`\n\nRepresents an assignment expression, which includes an operator, a target, and an expression.",
+    "body": "struct AssignmentExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::AssignmentOperator,\n  pub left: AssignmentTarget<'a>,\n  pub right: Expression<'a>,\n}"
+  },
+  "AssignmentPattern": {
+    "docs": "`x = 1` in `const {x = 1} = obj;`.\n\nSee other examples in docs for [`BindingPatternKind`].",
+    "body": "struct AssignmentPattern {\n  pub span: oxc_span::Span,\n  pub left: BindingPattern<'a>,\n  pub right: Expression<'a>,\n}"
+  },
+  "AssignmentTarget": {
+    "docs": "Destructuring Assignment\n\nInherits variants from [`SimpleAssignmentTarget`] and [`AssignmentTargetPattern`].\nSee [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum AssignmentTarget {\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}"
+  },
+  "AssignmentTargetMaybeDefault": {
+    "docs": "Assignment Target Maybe Default\n\nInherits variants from [`AssignmentTarget`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum AssignmentTargetMaybeDefault {\n  AssignmentTargetWithDefault(oxc_allocator::Box<'a, AssignmentTargetWithDefault<'a>>),\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}"
+  },
+  "AssignmentTargetPattern": {
+    "docs": "",
+    "body": "enum AssignmentTargetPattern {\n  ArrayAssignmentTarget(oxc_allocator::Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(oxc_allocator::Box<'a, ObjectAssignmentTarget<'a>>),\n}"
+  },
+  "AssignmentTargetProperty": {
+    "docs": "",
+    "body": "enum AssignmentTargetProperty {\n  AssignmentTargetPropertyIdentifier(oxc_allocator::Box<'a, AssignmentTargetPropertyIdentifier<'a>>),\n  AssignmentTargetPropertyProperty(oxc_allocator::Box<'a, AssignmentTargetPropertyProperty<'a>>),\n}"
+  },
+  "AssignmentTargetPropertyIdentifier": {
+    "docs": "`foo` in `({ foo } = obj);`\n\nRepresents an assignment target property identifier, which includes a binding,\nand an optional init expression.",
+    "body": "struct AssignmentTargetPropertyIdentifier {\n  pub span: oxc_span::Span,\n  pub binding: IdentifierReference<'a>,\n  pub init: Option<Expression<'a>>,\n}"
+  },
+  "AssignmentTargetPropertyProperty": {
+    "docs": "`foo: bar` in `({ foo: bar } = obj);`\n\nRepresents an assignment target property property, which includes a name and a binding.",
+    "body": "struct AssignmentTargetPropertyProperty {\n  pub span: oxc_span::Span,\n  pub name: PropertyKey<'a>,\n  pub binding: AssignmentTargetMaybeDefault<'a>,\n  pub computed: bool,\n}"
+  },
+  "AssignmentTargetRest": {
+    "docs": "`rest` in `[foo, ...rest] = arr;` or `({foo, ...rest} = obj);`.\n\nRepresents rest element in an `ArrayAssignmentTarget` or `ObjectAssignmentTarget`.",
+    "body": "struct AssignmentTargetRest {\n  pub span: oxc_span::Span,\n  pub target: AssignmentTarget<'a>,\n}"
+  },
+  "AssignmentTargetWithDefault": {
+    "docs": "",
+    "body": "struct AssignmentTargetWithDefault {\n  pub span: oxc_span::Span,\n  pub binding: AssignmentTarget<'a>,\n  pub init: Expression<'a>,\n}"
+  },
+  "AwaitExpression": {
+    "docs": "`await` in `await foo();`\n\nRepresents an await expression, which can include an argument.",
+    "body": "struct AwaitExpression {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}"
+  },
+  "BigIntLiteral": {
+    "docs": "BigInt literal",
+    "body": "struct BigIntLiteral {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub base: oxc_syntax::number::BigintBase,\n}"
+  },
+  "BinaryExpression": {
+    "docs": "`1 + 1` in `const two = 1 + 1;`\n\nRepresents a binary expression, which include a left expression, an operator, and a right expression.",
+    "body": "struct BinaryExpression {\n  pub span: oxc_span::Span,\n  pub left: Expression<'a>,\n  pub operator: oxc_syntax::operator::BinaryOperator,\n  pub right: Expression<'a>,\n}"
+  },
+  "BindingIdentifier": {
+    "docs": "`x` in `const x = 0;`\n\nRepresents a binding identifier, which is an identifier that is used to declare a variable,\nfunction, class, or object.\n\nSee: [13.1 Identifiers](https://tc39.es/ecma262/#sec-identifiers)\n\nAlso see other examples in docs for [`BindingPatternKind`].",
+    "body": "struct BindingIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub symbol_id: std::cell::Cell<Option<oxc_syntax::symbol::SymbolId>>,\n}"
+  },
+  "BindingPattern": {
+    "docs": "Destructuring Binding Patterns.\n<https://tc39.es/ecma262/#prod-BindingPattern>\n\nBinding patterns can be nested within other binding patterns\ne.g. `const [ { a: [ {x} ] } ] = arr;`.\n\nType annotations are valid in some positions e.g. `const x: T = f();`\nbut invalid in others e.g. `const [x: T] = f();`.",
+    "body": "struct BindingPattern {\n  pub kind: BindingPatternKind<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub optional: bool,\n}"
+  },
+  "BindingPatternKind": {
+    "docs": "",
+    "body": "enum BindingPatternKind {\n  BindingIdentifier(oxc_allocator::Box<'a, BindingIdentifier<'a>>),\n  ObjectPattern(oxc_allocator::Box<'a, ObjectPattern<'a>>),\n  ArrayPattern(oxc_allocator::Box<'a, ArrayPattern<'a>>),\n  AssignmentPattern(oxc_allocator::Box<'a, AssignmentPattern<'a>>),\n}"
+  },
+  "BindingProperty": {
+    "docs": "",
+    "body": "struct BindingProperty {\n  pub span: oxc_span::Span,\n  pub key: PropertyKey<'a>,\n  pub value: BindingPattern<'a>,\n  pub shorthand: bool,\n  pub computed: bool,\n}"
+  },
+  "BindingRestElement": {
+    "docs": "A `...rest` binding in an [array](ArrayPattern) or [object](ObjectPattern) destructure.\n\n## Examples\n```ts\nconst [a, ...rest] = [1, 2, 3];\n//           ^^^^  argument\nconst { x, y, ...others} = foo.bar();\n//               ^^^^^^  argument\n```",
+    "body": "struct BindingRestElement {\n  pub span: oxc_span::Span,\n  pub argument: BindingPattern<'a>,\n}"
+  },
+  "BlockStatement": {
+    "docs": "`{ let foo = 1; }` in `if(true) { let foo = 1; }`\n\nRepresents a block statement, which can include a body.",
+    "body": "struct BlockStatement {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "BooleanLiteral": {
+    "docs": "Boolean literal\n\n<https://tc39.es/ecma262/#prod-BooleanLiteral>",
+    "body": "struct BooleanLiteral {\n  pub span: oxc_span::Span,\n  pub value: bool,\n}"
+  },
+  "BreakStatement": {
+    "docs": "Break Statement",
+    "body": "struct BreakStatement {\n  pub span: oxc_span::Span,\n  pub label: Option<LabelIdentifier<'a>>,\n}"
+  },
+  "CallExpression": {
+    "docs": "`foo()` in `function foo() { return 1; }; foo();`\n\nRepresents a call expression, which can include a callee and arguments.\n\n## Examples\n```ts\n//        ___ callee\nconst x = foo(1, 2)\n\n//            ^^^^ arguments\nconst y = foo.bar?.(1, 2)\n//               ^ optional\n\nconst z = foo<number, string>(1, 2)\n//            ^^^^^^^^^^^^^^ type_arguments\n```",
+    "body": "struct CallExpression {\n  pub span: oxc_span::Span,\n  pub callee: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n  pub optional: bool,\n  pub pure: bool,\n}"
+  },
+  "CatchClause": {
+    "docs": "Catch Clause in a [`try/catch` statement](TryStatement).\n\nThis node creates a new scope inside its `body`.\n\n# Example\n```ts\ntry {\n  throw new Error('foo');\n} catch (e) {             // `param` is `e`\n  console.error(e);       // `body`\n}\n```",
+    "body": "struct CatchClause {\n  pub span: oxc_span::Span,\n  pub param: Option<CatchParameter<'a>>,\n  pub body: oxc_allocator::Box<'a, BlockStatement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "CatchParameter": {
+    "docs": "A caught error parameter in a [catch clause](CatchClause).\n\n# Examples\n\n```ts\ntry {} catch (err) {}\n//            ^^^ pattern\n```\n\n```ts\ntry {} catch ({ err }) {}\n//            ^^^^^^^  pattern\n```",
+    "body": "struct CatchParameter {\n  pub span: oxc_span::Span,\n  pub pattern: BindingPattern<'a>,\n}"
+  },
+  "ChainElement": {
+    "docs": "Chain Element\n\nInherits variants from [`MemberExpression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum ChainElement {\n  CallExpression(oxc_allocator::Box<'a, CallExpression<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ChainExpression": {
+    "docs": "`foo?.bar` in `foo?.bar;`\n\nRepresents a chain expression, which can include an expression.",
+    "body": "struct ChainExpression {\n  pub span: oxc_span::Span,\n  pub expression: ChainElement<'a>,\n}"
+  },
+  "Class": {
+    "docs": "Class Definitions",
+    "body": "struct Class {\n  pub span: oxc_span::Span,\n  pub type: ClassType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub id: Option<BindingIdentifier<'a>>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub super_class: Option<Expression<'a>>,\n  pub super_type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub implements: oxc_allocator::Vec<'a, TSClassImplements<'a>>,\n  pub body: oxc_allocator::Box<'a, ClassBody<'a>>,\n  pub abstract: bool,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "ClassBody": {
+    "docs": "",
+    "body": "struct ClassBody {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, ClassElement<'a>>,\n}"
+  },
+  "ClassElement": {
+    "docs": "Class Body Element\n\n## Example\n```ts\nclass Foo {\n  [prop: string]: string // ClassElement::TSIndexSignature\n\n  public x: number // ClassElement::PropertyDefinition\n\n  accessor z() { return 5 } // ClassElement::AccessorProperty\n\n  // These are all ClassElement::MethodDefinitions\n  get y() { return 5 }\n  set y(value) { }\n  static foo() {}\n  bar() {}\n}\n```",
+    "body": "enum ClassElement {\n  StaticBlock(oxc_allocator::Box<'a, StaticBlock<'a>>),\n  MethodDefinition(oxc_allocator::Box<'a, MethodDefinition<'a>>),\n  PropertyDefinition(oxc_allocator::Box<'a, PropertyDefinition<'a>>),\n  AccessorProperty(oxc_allocator::Box<'a, AccessorProperty<'a>>),\n  TSIndexSignature(oxc_allocator::Box<'a, TSIndexSignature<'a>>),\n}"
+  },
+  "ClassType": {
+    "docs": "",
+    "body": "enum ClassType {\n  ClassDeclaration,\n  ClassExpression,\n}"
+  },
+  "Comment": {
+    "docs": "A comment in source code.",
+    "body": "struct Comment {\n  pub span: oxc_span::Span,\n  pub attached_to: u32,\n  pub kind: CommentKind,\n  pub position: CommentPosition,\n  pub newlines: CommentNewlines,\n  pub content: CommentContent,\n}"
+  },
+  "CommentContent": {
+    "docs": "Annotation comment that has special meaning.",
+    "body": "enum CommentContent {\n  None,\n  Legal,\n  Jsdoc,\n  JsdocLegal,\n  Pure,\n  NoSideEffects,\n  Webpack,\n  Vite,\n  CoverageIgnore,\n}"
+  },
+  "CommentKind": {
+    "docs": "Indicates a line or block comment.",
+    "body": "enum CommentKind {\n  Line,\n  Block,\n}"
+  },
+  "CommentNewlines": {
+    "docs": "State of newlines around a comment.",
+    "body": "struct CommentNewlines {\n\n}"
+  },
+  "CommentPosition": {
+    "docs": "Information about a comment's position relative to a token.",
+    "body": "enum CommentPosition {\n  Leading,\n  Trailing,\n}"
+  },
+  "CommentsRange": {
+    "docs": "Double-ended iterator over a range of comments, by starting position.",
+    "body": "struct CommentsRange {\n\n}"
+  },
+  "ComputedMemberExpression": {
+    "docs": "`ar[0]` in `const ar = [1, 2]; ar[0];`\n\nRepresents a computed member access expression, which can include an object and an expression.",
+    "body": "struct ComputedMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub expression: Expression<'a>,\n  pub optional: bool,\n}"
+  },
+  "ConditionalExpression": {
+    "docs": "`bar ? 1 : 2` in `const foo = bar ? 1 : 2;`\n\nRepresents a conditional expression, which includes a test, a consequent, and an alternate.",
+    "body": "struct ConditionalExpression {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub consequent: Expression<'a>,\n  pub alternate: Expression<'a>,\n}"
+  },
+  "ContinueStatement": {
+    "docs": "Continue Statement",
+    "body": "struct ContinueStatement {\n  pub span: oxc_span::Span,\n  pub label: Option<LabelIdentifier<'a>>,\n}"
+  },
+  "DebuggerStatement": {
+    "docs": "Debugger Statement\n\n# Example\n```ts\nlet x = 1;\ndebugger; // <--\n```",
+    "body": "struct DebuggerStatement {\n  pub span: oxc_span::Span,\n}"
+  },
+  "Declaration": {
+    "docs": "Declarations and the Variable Statement",
+    "body": "enum Declaration {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  FunctionDeclaration(oxc_allocator::Box<'a, Function<'a>>),\n  ClassDeclaration(oxc_allocator::Box<'a, Class<'a>>),\n  TSTypeAliasDeclaration(oxc_allocator::Box<'a, TSTypeAliasDeclaration<'a>>),\n  TSInterfaceDeclaration(oxc_allocator::Box<'a, TSInterfaceDeclaration<'a>>),\n  TSEnumDeclaration(oxc_allocator::Box<'a, TSEnumDeclaration<'a>>),\n  TSModuleDeclaration(oxc_allocator::Box<'a, TSModuleDeclaration<'a>>),\n  TSImportEqualsDeclaration(oxc_allocator::Box<'a, TSImportEqualsDeclaration<'a>>),\n}"
+  },
+  "Decorator": {
+    "docs": "Decorator\n\nDecorators are annotations on classes, methods, properties, and parameters.\nThey are usually either an [`IdentifierReference`] or an [`CallExpression`].\n\n## Example\n```ts\n@Foo                        // class decorator\n@Bar()                      // class decorator factory\nclass SomeClass {\n    @Freeze                 // property decorator\n    public x: number;\n\n    @MethodDecorator        // method decorator\n    public method(\n        @LogParam x: number // parameter decorator\n    ) {\n      // ...\n    }\n}\n```\n\n[`IdentifierReference`]: crate::ast::js::IdentifierReference\n[`CallExpression`]: crate::ast::js::CallExpression",
+    "body": "struct Decorator {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "Directive": {
+    "docs": "`\"use strict\";` in `\"use strict\";`\n\nRepresents a directive statement, which can include a string literal.",
+    "body": "struct Directive {\n  pub span: oxc_span::Span,\n  pub expression: StringLiteral<'a>,\n  pub directive: oxc_span::Atom<'a>,\n}"
+  },
+  "DoWhileStatement": {
+    "docs": "Do-While Statement",
+    "body": "struct DoWhileStatement {\n  pub span: oxc_span::Span,\n  pub body: Statement<'a>,\n  pub test: Expression<'a>,\n}"
+  },
+  "Elision": {
+    "docs": "empty slot in `const array = [1, , 2];`\n\nArray Expression Elision Element",
+    "body": "struct Elision {\n  pub span: oxc_span::Span,\n}"
+  },
+  "EmptyStatement": {
+    "docs": "Empty Statement",
+    "body": "struct EmptyStatement {\n  pub span: oxc_span::Span,\n}"
+  },
+  "ExportAllDeclaration": {
+    "docs": "Export All Declaration\n\n## Example\n\n```ts\n//          _______ exported\nexport * as numbers from '../numbers.js';\n//                       ^^^^^^^^^^^^^^^ source\n```",
+    "body": "struct ExportAllDeclaration {\n  pub span: oxc_span::Span,\n  pub exported: Option<ModuleExportName<'a>>,\n  pub source: StringLiteral<'a>,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n  pub export_kind: ImportOrExportKind,\n}"
+  },
+  "ExportDefaultDeclaration": {
+    "docs": "Export Default Declaration\n\n## Example\n\n```ts\nexport default HoistableDeclaration\nexport default ClassDeclaration\nexport default AssignmentExpression\n```",
+    "body": "struct ExportDefaultDeclaration {\n  pub span: oxc_span::Span,\n  pub exported: ModuleExportName<'a>,\n  pub declaration: ExportDefaultDeclarationKind<'a>,\n}"
+  },
+  "ExportDefaultDeclarationKind": {
+    "docs": "Export Default Declaration Kind\n\nInherits variants from [`Expression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum ExportDefaultDeclarationKind {\n  FunctionDeclaration(oxc_allocator::Box<'a, Function<'a>>),\n  ClassDeclaration(oxc_allocator::Box<'a, Class<'a>>),\n  TSInterfaceDeclaration(oxc_allocator::Box<'a, TSInterfaceDeclaration<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ExportNamedDeclaration": {
+    "docs": "Named Export Declaration\n\n## Example\n\n```ts\n//       ________ specifiers\nexport { Foo, Bar };\nexport type { Baz } from 'baz';\n//     ^^^^              ^^^^^\n// export_kind           source\n```",
+    "body": "struct ExportNamedDeclaration {\n  pub span: oxc_span::Span,\n  pub declaration: Option<Declaration<'a>>,\n  pub specifiers: oxc_allocator::Vec<'a, ExportSpecifier<'a>>,\n  pub source: Option<StringLiteral<'a>>,\n  pub export_kind: ImportOrExportKind,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n}"
+  },
+  "ExportSpecifier": {
+    "docs": "Export Specifier\n\nEach [`ExportSpecifier`] is one of the named exports in an [`ExportNamedDeclaration`].\n\nNote: `export_kind` relates to whether this specific `ExportSpecifier` is preceded by `type` keyword.\nIf the whole `ExportNamedDeclaration` has a `type` prefix, its `ExportSpecifier`s will still have\n`export_kind: ImportOrExportKind::Value`. e.g. in this case: `export type { Foo, Bar }`.\n\n## Example\n\n```ts\n//       ____ export_kind\nexport { type Foo as Bar };\n//      local ^^^    ^^^ exported\n```",
+    "body": "struct ExportSpecifier {\n  pub span: oxc_span::Span,\n  pub local: ModuleExportName<'a>,\n  pub exported: ModuleExportName<'a>,\n  pub export_kind: ImportOrExportKind,\n}"
+  },
+  "Expression": {
+    "docs": "Represents a type for AST nodes corresponding to JavaScript's expressions.\n\nInherits variants from [`MemberExpression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum Expression {\n  BooleanLiteral(oxc_allocator::Box<'a, BooleanLiteral>),\n  NullLiteral(oxc_allocator::Box<'a, NullLiteral>),\n  NumericLiteral(oxc_allocator::Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(oxc_allocator::Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(oxc_allocator::Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n  Identifier(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  MetaProperty(oxc_allocator::Box<'a, MetaProperty<'a>>),\n  Super(oxc_allocator::Box<'a, Super>),\n  ArrayExpression(oxc_allocator::Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(oxc_allocator::Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(oxc_allocator::Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(oxc_allocator::Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(oxc_allocator::Box<'a, BinaryExpression<'a>>),\n  CallExpression(oxc_allocator::Box<'a, CallExpression<'a>>),\n  ChainExpression(oxc_allocator::Box<'a, ChainExpression<'a>>),\n  ClassExpression(oxc_allocator::Box<'a, Class<'a>>),\n  ConditionalExpression(oxc_allocator::Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(oxc_allocator::Box<'a, Function<'a>>),\n  ImportExpression(oxc_allocator::Box<'a, ImportExpression<'a>>),\n  LogicalExpression(oxc_allocator::Box<'a, LogicalExpression<'a>>),\n  NewExpression(oxc_allocator::Box<'a, NewExpression<'a>>),\n  ObjectExpression(oxc_allocator::Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(oxc_allocator::Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(oxc_allocator::Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(oxc_allocator::Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n  UnaryExpression(oxc_allocator::Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(oxc_allocator::Box<'a, UpdateExpression<'a>>),\n  YieldExpression(oxc_allocator::Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(oxc_allocator::Box<'a, PrivateInExpression<'a>>),\n  JSXElement(oxc_allocator::Box<'a, JSXElement<'a>>),\n  JSXFragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n  TSAsExpression(oxc_allocator::Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(oxc_allocator::Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(oxc_allocator::Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(oxc_allocator::Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(oxc_allocator::Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ExpressionStatement": {
+    "docs": "Expression Statement",
+    "body": "struct ExpressionStatement {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "ForInStatement": {
+    "docs": "For-In Statement",
+    "body": "struct ForInStatement {\n  pub span: oxc_span::Span,\n  pub left: ForStatementLeft<'a>,\n  pub right: Expression<'a>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "FormalParameter": {
+    "docs": "",
+    "body": "struct FormalParameter {\n  pub span: oxc_span::Span,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub pattern: BindingPattern<'a>,\n  pub accessibility: Option<TSAccessibility>,\n  pub readonly: bool,\n  pub override: bool,\n}"
+  },
+  "FormalParameterKind": {
+    "docs": "",
+    "body": "enum FormalParameterKind {\n  FormalParameter,\n  UniqueFormalParameters,\n  ArrowFormalParameters,\n  Signature,\n}"
+  },
+  "FormalParameters": {
+    "docs": "<https://tc39.es/ecma262/#prod-FormalParameters>",
+    "body": "struct FormalParameters {\n  pub span: oxc_span::Span,\n  pub kind: FormalParameterKind,\n  pub items: oxc_allocator::Vec<'a, FormalParameter<'a>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}"
+  },
+  "ForOfStatement": {
+    "docs": "For-Of Statement",
+    "body": "struct ForOfStatement {\n  pub span: oxc_span::Span,\n  pub await: bool,\n  pub left: ForStatementLeft<'a>,\n  pub right: Expression<'a>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "ForStatement": {
+    "docs": "For Statement",
+    "body": "struct ForStatement {\n  pub span: oxc_span::Span,\n  pub init: Option<ForStatementInit<'a>>,\n  pub test: Option<Expression<'a>>,\n  pub update: Option<Expression<'a>>,\n  pub body: Statement<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "ForStatementInit": {
+    "docs": "For Statement Init\n\nInherits variants from [`Expression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum ForStatementInit {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "ForStatementLeft": {
+    "docs": "For Statement Left\n\nInherits variants from [`AssignmentTarget`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum ForStatementLeft {\n  VariableDeclaration(oxc_allocator::Box<'a, VariableDeclaration<'a>>),\n  AssignmentTargetIdentifier(Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n  ArrayAssignmentTarget(Box<'a, ArrayAssignmentTarget<'a>>),\n  ObjectAssignmentTarget(Box<'a, ObjectAssignmentTarget<'a>>),\n}"
+  },
+  "Function": {
+    "docs": "Function Statement or Expression\n\nIncludes generator functions and function-valued class properties.\nArrow functions are represented by [`ArrowFunctionExpression`].\n\n# Examples\n```ts\n//    id ___             ____ return_type\nfunction foo(a: number): void {\n//           ^^^^^^^^^ params\n    console.log(a);\n}\n```\n\n```ts\n// `async` and `generator` are true\nasync function* foo() {\n    yield 1;\n}\n```\n\n```js\n// function.id is None\n// use function.r#type to check if a node is a function expression.\nconst foo = function() { }\n```\n\n```ts\n// Function overloads will not have a body\nfunction add(a: number, b: number): number; // <-- No body\nfunction add(a: string, b: string): string; // <-- No body\nfunction add(a: any, b: any): any {         // <-- Body is between `{}`, inclusive.\n   return a + b;\n}\n```",
+    "body": "struct Function {\n  pub span: oxc_span::Span,\n  pub type: FunctionType,\n  pub id: Option<BindingIdentifier<'a>>,\n  pub generator: bool,\n  pub async: bool,\n  pub declare: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub body: Option<oxc_allocator::Box<'a, FunctionBody<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n  pub pure: bool,\n  pub pife: bool,\n}"
+  },
+  "FunctionBody": {
+    "docs": "<https://tc39.es/ecma262/#prod-FunctionBody>",
+    "body": "struct FunctionBody {\n  pub span: oxc_span::Span,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub statements: oxc_allocator::Vec<'a, Statement<'a>>,\n}"
+  },
+  "FunctionType": {
+    "docs": "",
+    "body": "enum FunctionType {\n  FunctionDeclaration,\n  FunctionExpression,\n  TSDeclareFunction,\n  TSEmptyBodyFunctionExpression,\n}"
+  },
+  "Hashbang": {
+    "docs": "`#! /usr/bin/env node` in `#! /usr/bin/env node`\n\nRepresents a hashbang directive, which can include a value.",
+    "body": "struct Hashbang {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n}"
+  },
+  "IdentifierName": {
+    "docs": "`foo` in `let foo = 1;`\n\nFundamental syntactic structure used for naming variables, functions, and properties.\nIt must start with a Unicode letter (including $ and _) and can be followed by Unicode letters,\ndigits, `$`, or `_`.",
+    "body": "struct IdentifierName {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}"
+  },
+  "IdentifierReference": {
+    "docs": "`x` inside `func` in `const x = 0; function func() { console.log(x); }`\n\nRepresents an identifier reference, which is a reference to a variable, function, class, or object.\n\nSee: [13.1 Identifiers](https://tc39.es/ecma262/#sec-identifiers)",
+    "body": "struct IdentifierReference {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub reference_id: std::cell::Cell<Option<oxc_syntax::reference::ReferenceId>>,\n}"
+  },
+  "IfStatement": {
+    "docs": "If Statement",
+    "body": "struct IfStatement {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub consequent: Statement<'a>,\n  pub alternate: Option<Statement<'a>>,\n}"
+  },
+  "ImportAttribute": {
+    "docs": "",
+    "body": "struct ImportAttribute {\n  pub span: oxc_span::Span,\n  pub key: ImportAttributeKey<'a>,\n  pub value: StringLiteral<'a>,\n}"
+  },
+  "ImportAttributeKey": {
+    "docs": "",
+    "body": "enum ImportAttributeKey {\n  Identifier(IdentifierName<'a>),\n  StringLiteral(StringLiteral<'a>),\n}"
+  },
+  "ImportDeclaration": {
+    "docs": "",
+    "body": "struct ImportDeclaration {\n  pub span: oxc_span::Span,\n  pub specifiers: Option<oxc_allocator::Vec<'a, ImportDeclarationSpecifier<'a>>>,\n  pub source: StringLiteral<'a>,\n  pub phase: Option<ImportPhase>,\n  pub with_clause: Option<oxc_allocator::Box<'a, WithClause<'a>>>,\n  pub import_kind: ImportOrExportKind,\n}"
+  },
+  "ImportDeclarationSpecifier": {
+    "docs": "",
+    "body": "enum ImportDeclarationSpecifier {\n  ImportSpecifier(oxc_allocator::Box<'a, ImportSpecifier<'a>>),\n  ImportDefaultSpecifier(oxc_allocator::Box<'a, ImportDefaultSpecifier<'a>>),\n  ImportNamespaceSpecifier(oxc_allocator::Box<'a, ImportNamespaceSpecifier<'a>>),\n}"
+  },
+  "ImportDefaultSpecifier": {
+    "docs": "Default Import Specifier\n\n## Example\n```ts\nimport local from \"source\";\n```\n",
+    "body": "struct ImportDefaultSpecifier {\n  pub span: oxc_span::Span,\n  pub local: BindingIdentifier<'a>,\n}"
+  },
+  "ImportExpression": {
+    "docs": "",
+    "body": "struct ImportExpression {\n  pub span: oxc_span::Span,\n  pub source: Expression<'a>,\n  pub options: Option<Expression<'a>>,\n  pub phase: Option<ImportPhase>,\n}"
+  },
+  "ImportNamespaceSpecifier": {
+    "docs": "Namespace import specifier\n\n## Example\n```ts\nimport * as local from \"source\";\n```",
+    "body": "struct ImportNamespaceSpecifier {\n  pub span: oxc_span::Span,\n  pub local: BindingIdentifier<'a>,\n}"
+  },
+  "ImportOrExportKind": {
+    "docs": "See [TypeScript - Type-Only Imports and Exports](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html)",
+    "body": "enum ImportOrExportKind {\n  Value,\n  Type,\n}"
+  },
+  "ImportPhase": {
+    "docs": "Import Phase\n\n<https://github.com/tc39/proposal-defer-import-eval>\n<https://github.com/tc39/proposal-source-phase-imports>\n<https://github.com/estree/estree/blob/2b48e56efc223ea477a45b5e034039934c5791fa/stage3/source-phase-imports.md>",
+    "body": "enum ImportPhase {\n  Source,\n  Defer,\n}"
+  },
+  "ImportSpecifier": {
+    "docs": "",
+    "body": "struct ImportSpecifier {\n  pub span: oxc_span::Span,\n  pub imported: ModuleExportName<'a>,\n  pub local: BindingIdentifier<'a>,\n  pub import_kind: ImportOrExportKind,\n}"
+  },
+  "JSDocNonNullableType": {
+    "docs": "`type foo = ty!` or `type foo = !ty`",
+    "body": "struct JSDocNonNullableType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub postfix: bool,\n}"
+  },
+  "JSDocNullableType": {
+    "docs": "`type foo = ty?` or `type foo = ?ty`",
+    "body": "struct JSDocNullableType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub postfix: bool,\n}"
+  },
+  "JSDocUnknownType": {
+    "docs": "",
+    "body": "struct JSDocUnknownType {\n  pub span: oxc_span::Span,\n}"
+  },
+  "JSXAttribute": {
+    "docs": "JSX Attribute\n\nAn attribute in a JSX opening tag. May or may not have a value. Part of\n[`JSXAttributeItem`].\n\n## Example\n\n```tsx\n// `has-no-value` is a JSXAttribute with no value.\n<Component has-no-value foo=\"foo\" />\n//                 name ^^^ ^^^^ value",
+    "body": "struct JSXAttribute {\n  pub span: oxc_span::Span,\n  pub name: JSXAttributeName<'a>,\n  pub value: Option<JSXAttributeValue<'a>>,\n}"
+  },
+  "JSXAttributeItem": {
+    "docs": "JSX Attributes\n\n## Example\n\n```tsx\n<Component foo=\"bar\" baz={4} {...rest} />\n//         ^^^^^^^^^ ^^^^^^^ ^^^^^^^^^\n//             Attribute     SpreadAttribute\n```",
+    "body": "enum JSXAttributeItem {\n  Attribute(oxc_allocator::Box<'a, JSXAttribute<'a>>),\n  SpreadAttribute(oxc_allocator::Box<'a, JSXSpreadAttribute<'a>>),\n}"
+  },
+  "JSXAttributeName": {
+    "docs": "JSX Attribute Name\n\nPart of a [`JSXAttribute`].\n\n\"Normal\" attributes will be a [`JSXIdentifier`], while namespaced attributes\nwill be a [`JSXNamespacedName`].\n\n## Example\n\n```tsx\nconst Foo = <Component foo=\"bar\" />;\n//                     ^^^ Identifier\nconst Bar = <Component foo:bar=\"baz\" />;\n//                     ^^^^^^^ NamespacedName\n```",
+    "body": "enum JSXAttributeName {\n  Identifier(oxc_allocator::Box<'a, JSXIdentifier<'a>>),\n  NamespacedName(oxc_allocator::Box<'a, JSXNamespacedName<'a>>),\n}"
+  },
+  "JSXAttributeValue": {
+    "docs": "JSX Attribute Value\n\nPart of a [`JSXAttribute`].\n\nYou're most likely interested in [`StringLiteral`] and\n[`JSXExpressionContainer`].\n\n## Example\n\n```tsx\n//                        v ExpressionContainer storing a NumericLiteral\n<Component foo=\"bar\" baz={4} />\n//              ^^^ StringLiteral\n\n// not a very common case, but it is valid syntax. Could also be a fragment.\n<Component foo=<Element /> />\n//             ^^^^^^^^^^^ Element\n```",
+    "body": "enum JSXAttributeValue {\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ExpressionContainer(oxc_allocator::Box<'a, JSXExpressionContainer<'a>>),\n  Element(oxc_allocator::Box<'a, JSXElement<'a>>),\n  Fragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n}"
+  },
+  "JSXChild": {
+    "docs": "JSX Child\n\nPart of a [`JSXElement`].",
+    "body": "enum JSXChild {\n  Text(oxc_allocator::Box<'a, JSXText<'a>>),\n  Element(oxc_allocator::Box<'a, JSXElement<'a>>),\n  Fragment(oxc_allocator::Box<'a, JSXFragment<'a>>),\n  ExpressionContainer(oxc_allocator::Box<'a, JSXExpressionContainer<'a>>),\n  Spread(oxc_allocator::Box<'a, JSXSpreadChild<'a>>),\n}"
+  },
+  "JSXClosingElement": {
+    "docs": "JSX Closing Element\n\nClosing tag in a [`JSXElement`]. Self-closing tags do not have closing elements.\n\n## Example\n\n```tsx\n<Foo>Hello, World!</Foo>\n//                  ^^^ name\n<Bar /> // <- no closing element\n```",
+    "body": "struct JSXClosingElement {\n  pub span: oxc_span::Span,\n  pub name: JSXElementName<'a>,\n}"
+  },
+  "JSXClosingFragment": {
+    "docs": "JSX Closing Fragment (`</>`)",
+    "body": "struct JSXClosingFragment {\n  pub span: oxc_span::Span,\n}"
+  },
+  "JSXElement": {
+    "docs": "JSX Element\n\nNote that fragments (`<></>`) are represented as [`JSXFragment`], unless they are written as\nmembers of React (e.g. `<React.Fragment></React.Fragment>`).\n## Examples\n\n```tsx\n<Foo>        // <- opening_element\n  some text  // <- children\n</Foo>       // <- closing_element\n```\n\n```tsx\n<Foo />     // <- opening_element, no closing_element\n```\n\nSee: [JSX Syntax](https://facebook.github.io/jsx/)",
+    "body": "struct JSXElement {\n  pub span: oxc_span::Span,\n  pub opening_element: oxc_allocator::Box<'a, JSXOpeningElement<'a>>,\n  pub children: oxc_allocator::Vec<'a, JSXChild<'a>>,\n  pub closing_element: Option<oxc_allocator::Box<'a, JSXClosingElement<'a>>>,\n}"
+  },
+  "JSXElementName": {
+    "docs": "JSX Element Name",
+    "body": "enum JSXElementName {\n  Identifier(oxc_allocator::Box<'a, JSXIdentifier<'a>>),\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  NamespacedName(oxc_allocator::Box<'a, JSXNamespacedName<'a>>),\n  MemberExpression(oxc_allocator::Box<'a, JSXMemberExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}"
+  },
+  "JSXEmptyExpression": {
+    "docs": "An empty JSX expression (`{}`)",
+    "body": "struct JSXEmptyExpression {\n  pub span: oxc_span::Span,\n}"
+  },
+  "JSXExpression": {
+    "docs": "JSX Expression\n\nGets wrapped by a [`JSXExpressionContainer`]. Inherits variants from [`Expression`]. See [`ast`\nmodule docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum JSXExpression {\n  EmptyExpression(JSXEmptyExpression),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "JSXExpressionContainer": {
+    "docs": "JSX Expression Container\n\nExpression containers wrap [`JSXExpression`]s in JSX attributes and children using `{}`.\n\n## Example\n\n```tsx\n// boolean-like and string-like expressions are not wrapped in containers.\n// Here, only `container` is a JSXExpressionContainer.\n<Foo bar baz=\"bang\" container={4}/>\n  {4}  // <- wrapped in container\n</Foo>\n```",
+    "body": "struct JSXExpressionContainer {\n  pub span: oxc_span::Span,\n  pub expression: JSXExpression<'a>,\n}"
+  },
+  "JSXFragment": {
+    "docs": "JSX Fragment\n\nA fragment written with the special `<></>` syntax. When written as a `<Fragment>` component,\nfragments will be represented as [`JSXElement`]s.\n\nNote that fragments cannot have attributes or type parameters.\n\nSee: [`React.Fragment`](https://react.dev/reference/react/Fragment)",
+    "body": "struct JSXFragment {\n  pub span: oxc_span::Span,\n  pub opening_fragment: JSXOpeningFragment,\n  pub children: oxc_allocator::Vec<'a, JSXChild<'a>>,\n  pub closing_fragment: JSXClosingFragment,\n}"
+  },
+  "JSXIdentifier": {
+    "docs": "JSX Identifier\n\nSimilar to [`IdentifierName`], but used in JSX elements.\n\n[`IdentifierName`]: super::IdentifierName",
+    "body": "struct JSXIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}"
+  },
+  "JSXMemberExpression": {
+    "docs": "JSX Member Expression\n\nUsed in [`JSXElementName`]. Multiple member expressions may be chained together. In this case,\n[`object`] will be a [`member expression`].\n\n## Example\n\n```tsx\n// <object.property />\n<Apple.Orange />\n<Foo.Bar.Baz.Bang />\n```\n\n[`object`]: JSXMemberExpression::object\n[`member expression`]: JSXMemberExpressionObject::MemberExpression",
+    "body": "struct JSXMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: JSXMemberExpressionObject<'a>,\n  pub property: JSXIdentifier<'a>,\n}"
+  },
+  "JSXMemberExpressionObject": {
+    "docs": "JSX Member Expression Object\n\nPart of a [`JSXMemberExpression`]. This is the object being accessed in\nnamespace-like JSX tag names.\n\n## Example\n```tsx\nconst x = <Apple.Orange />\n//         ^^^^^ IdentifierReference\n\nconst y = <Apple.Orange.Banana />\n//         ^^^^^^^^^^^^ MemberExpression\n\nconst z = <this.Orange />\n//         ^^^^ ThisExpression\n```",
+    "body": "enum JSXMemberExpressionObject {\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  MemberExpression(oxc_allocator::Box<'a, JSXMemberExpression<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}"
+  },
+  "JSXNamespacedName": {
+    "docs": "JSX Namespaced Name\n\n## Example\n\n```tsx\n<Apple:Orange />\n```",
+    "body": "struct JSXNamespacedName {\n  pub span: oxc_span::Span,\n  pub namespace: JSXIdentifier<'a>,\n  pub name: JSXIdentifier<'a>,\n}"
+  },
+  "JSXOpeningElement": {
+    "docs": "JSX Opening Element\n\nOpening tag in a [`JSXElement`].\n\n## Examples\n```tsx\n// element with opening and closing tags (self_closing = false)\n//   ___ name\n    <Foo bar baz={4}>\n//       ^^^^^^^^^^^ attributes\n\n// element with self-closing tag (self_closing = true)\n<Component<T> />\n//         ^ type_arguments\n```",
+    "body": "struct JSXOpeningElement {\n  pub span: oxc_span::Span,\n  pub name: JSXElementName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub attributes: oxc_allocator::Vec<'a, JSXAttributeItem<'a>>,\n}"
+  },
+  "JSXOpeningFragment": {
+    "docs": "JSX Opening Fragment (`<>`)",
+    "body": "struct JSXOpeningFragment {\n  pub span: oxc_span::Span,\n}"
+  },
+  "JSXSpreadAttribute": {
+    "docs": "JSX Spread Attribute\n\n## Example\n```tsx\n<Component {...props} />\n//          ^^^^^^^^ argument\n```",
+    "body": "struct JSXSpreadAttribute {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}"
+  },
+  "JSXSpreadChild": {
+    "docs": "JSX Spread Child.\n\nVariant of [`JSXChild`] that represents an object spread (`{...expression}`).",
+    "body": "struct JSXSpreadChild {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "JSXText": {
+    "docs": "Text inside a JSX element.\n\nNot to be confused with a [`StringLiteral`].\n\n## Example\n\n```tsx\n<Foo>Some text</Foo>     // `Some Text` is a JSXText,\n<Foo>\"Some string\"</Foo> // but `\"Some string\"` is a StringLiteral.\n```",
+    "body": "struct JSXText {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n}"
+  },
+  "LabeledStatement": {
+    "docs": "Labelled Statement",
+    "body": "struct LabeledStatement {\n  pub span: oxc_span::Span,\n  pub label: LabelIdentifier<'a>,\n  pub body: Statement<'a>,\n}"
+  },
+  "LabelIdentifier": {
+    "docs": "`loop` in `loop: while (true) { break loop; }`\n\nRepresents a label identifier, which is an identifier that is used to label a statement.\n\nSee: [13.1 Identifiers](https://tc39.es/ecma262/#sec-identifiers)",
+    "body": "struct LabelIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}"
+  },
+  "LogicalExpression": {
+    "docs": "`||` in `const foo = bar || 2;`\n\nRepresents a logical expression, which includes a left expression, an operator, and a right expression.\nThe following syntaxes are supported: `||`, `&&` and `??`.",
+    "body": "struct LogicalExpression {\n  pub span: oxc_span::Span,\n  pub left: Expression<'a>,\n  pub operator: oxc_syntax::operator::LogicalOperator,\n  pub right: Expression<'a>,\n}"
+  },
+  "MemberExpression": {
+    "docs": "Represents a member access expression, which can include computed member access,\nstatic member access, or private field access.\n\n<https://tc39.es/ecma262/#prod-MemberExpression>",
+    "body": "enum MemberExpression {\n  ComputedMemberExpression(oxc_allocator::Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(oxc_allocator::Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(oxc_allocator::Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "MemberExpressionKind": {
+    "docs": "This is a subset of [`AstKind`] that represents member expressions.\n\nHaving a separate enum for this allows us to implement helpful methods that are specific to member expressions,\nsuch as getting the property name or the object of the member expression.",
+    "body": "enum MemberExpressionKind {\n  Static(&'a StaticMemberExpression<'a>),\n  Computed(&'a ComputedMemberExpression<'a>),\n  PrivateField(&'a PrivateFieldExpression<'a>),\n}"
+  },
+  "MetaProperty": {
+    "docs": "`import.meta` in `console.log(import.meta);`\n\nRepresents a meta property. The following syntaxes are supported. `import.meta`, `new.target`.",
+    "body": "struct MetaProperty {\n  pub span: oxc_span::Span,\n  pub meta: IdentifierName<'a>,\n  pub property: IdentifierName<'a>,\n}"
+  },
+  "MethodDefinition": {
+    "docs": "",
+    "body": "struct MethodDefinition {\n  pub span: oxc_span::Span,\n  pub type: MethodDefinitionType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub value: oxc_allocator::Box<'a, Function<'a>>,\n  pub kind: MethodDefinitionKind,\n  pub computed: bool,\n  pub static: bool,\n  pub override: bool,\n  pub optional: bool,\n  pub accessibility: Option<TSAccessibility>,\n}"
+  },
+  "MethodDefinitionKind": {
+    "docs": "",
+    "body": "enum MethodDefinitionKind {\n  Constructor,\n  Method,\n  Get,\n  Set,\n}"
+  },
+  "MethodDefinitionType": {
+    "docs": "",
+    "body": "enum MethodDefinitionType {\n  MethodDefinition,\n  TSAbstractMethodDefinition,\n}"
+  },
+  "ModuleDeclaration": {
+    "docs": "ES6 Module Declaration\n\nAn ESM import or export statement.\n\n## Example\n\n```ts\n// ImportDeclaration\nimport { foo } from 'foo';\nimport bar from 'bar';\nimport * as baz from 'baz';\n\n// Not a ModuleDeclaration\nexport const a = 5;\n\nconst b = 6;\n\nexport { b };             // ExportNamedDeclaration\nexport default b;         // ExportDefaultDeclaration\nexport * as c from './c'; // ExportAllDeclaration\nexport = b;               // TSExportAssignment\nexport as namespace d;    // TSNamespaceExportDeclaration\n```",
+    "body": "enum ModuleDeclaration {\n  ImportDeclaration(oxc_allocator::Box<'a, ImportDeclaration<'a>>),\n  ExportAllDeclaration(oxc_allocator::Box<'a, ExportAllDeclaration<'a>>),\n  ExportDefaultDeclaration(oxc_allocator::Box<'a, ExportDefaultDeclaration<'a>>),\n  ExportNamedDeclaration(oxc_allocator::Box<'a, ExportNamedDeclaration<'a>>),\n  TSExportAssignment(oxc_allocator::Box<'a, TSExportAssignment<'a>>),\n  TSNamespaceExportDeclaration(oxc_allocator::Box<'a, TSNamespaceExportDeclaration<'a>>),\n}"
+  },
+  "ModuleDeclarationKind": {
+    "docs": "",
+    "body": "enum ModuleDeclarationKind {\n  Import(&'a ImportDeclaration<'a>),\n  ExportAll(&'a ExportAllDeclaration<'a>),\n  ExportNamed(&'a ExportNamedDeclaration<'a>),\n  ExportDefault(&'a ExportDefaultDeclaration<'a>),\n  TSExportAssignment(&'a TSExportAssignment<'a>),\n  TSNamespaceExport(&'a TSNamespaceExportDeclaration<'a>),\n}"
+  },
+  "ModuleExportName": {
+    "docs": "Module Export Name\n\nSupports:\n  * `import {\"\\0 any unicode\" as foo} from \"\"`\n  * `export {foo as \"\\0 any unicode\"}`\n* es2022: <https://github.com/estree/estree/blob/e6015c4c63118634749001b1cd1c3f7a0388f16e/es2022.md#modules>\n* <https://github.com/tc39/ecma262/pull/2154>",
+    "body": "enum ModuleExportName {\n  IdentifierName(IdentifierName<'a>),\n  IdentifierReference(IdentifierReference<'a>),\n  StringLiteral(StringLiteral<'a>),\n}"
+  },
+  "NewExpression": {
+    "docs": "`new C()` in `class C {}; new C();`\n\nRepresents a new expression, which can include a callee and arguments.\n\n## Example\n```ts\n//           callee         arguments\n//              ↓↓↓         ↓↓↓↓\nconst foo = new Foo<number>(1, 2)\n//                 ↑↑↑↑↑↑↑↑\n//                 type_arguments\n```",
+    "body": "struct NewExpression {\n  pub span: oxc_span::Span,\n  pub callee: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n  pub pure: bool,\n}"
+  },
+  "NullLiteral": {
+    "docs": "Null literal\n\n<https://tc39.es/ecma262/#sec-null-literals>",
+    "body": "struct NullLiteral {\n  pub span: oxc_span::Span,\n}"
+  },
+  "NumericLiteral": {
+    "docs": "Numeric literal\n\n<https://tc39.es/ecma262/#sec-literals-numeric-literals>",
+    "body": "struct NumericLiteral {\n  pub span: oxc_span::Span,\n  pub value: f64,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub base: oxc_syntax::number::NumberBase,\n}"
+  },
+  "ObjectAssignmentTarget": {
+    "docs": "`{ foo }` in `({ foo } = obj);`\n\nRepresents an object assignment target, which can include properties and a rest element.",
+    "body": "struct ObjectAssignmentTarget {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, AssignmentTargetProperty<'a>>,\n  pub rest: Option<AssignmentTargetRest<'a>>,\n}"
+  },
+  "ObjectExpression": {
+    "docs": "`{ a: 1 }` in `const obj = { a: 1 };`\n\nRepresents an object literal, which can include properties, spread properties,\nor computed properties.",
+    "body": "struct ObjectExpression {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, ObjectPropertyKind<'a>>,\n}"
+  },
+  "ObjectPattern": {
+    "docs": "`{x}` in `const {x} = 1;`.\n\nSee other examples in docs for [`BindingPatternKind`].",
+    "body": "struct ObjectPattern {\n  pub span: oxc_span::Span,\n  pub properties: oxc_allocator::Vec<'a, BindingProperty<'a>>,\n  pub rest: Option<oxc_allocator::Box<'a, BindingRestElement<'a>>>,\n}"
+  },
+  "ObjectProperty": {
+    "docs": "`a: 1` in `const obj = { a: 1 };`\n\nRepresents a property in an object literal.",
+    "body": "struct ObjectProperty {\n  pub span: oxc_span::Span,\n  pub kind: PropertyKind,\n  pub key: PropertyKey<'a>,\n  pub value: Expression<'a>,\n  pub method: bool,\n  pub shorthand: bool,\n  pub computed: bool,\n}"
+  },
+  "ObjectPropertyKind": {
+    "docs": "Represents a property in an object literal.",
+    "body": "enum ObjectPropertyKind {\n  ObjectProperty(oxc_allocator::Box<'a, ObjectProperty<'a>>),\n  SpreadProperty(oxc_allocator::Box<'a, SpreadElement<'a>>),\n}"
+  },
+  "ParenthesizedExpression": {
+    "docs": "`(a + b)` in `const res = (a + b) / c;`\n\nRepresents a parenthesized expression, which can include an expression.",
+    "body": "struct ParenthesizedExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "PrivateFieldExpression": {
+    "docs": "`c.#a` in `class C { #a = 1; }; const c = new C(); c.#a;`\n\nRepresents a private field access expression, which can include an object and a private identifier.",
+    "body": "struct PrivateFieldExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub field: PrivateIdentifier<'a>,\n  pub optional: bool,\n}"
+  },
+  "PrivateIdentifier": {
+    "docs": "An identifier for a private class member.\n\nSee: [MDN - Private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)",
+    "body": "struct PrivateIdentifier {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n}"
+  },
+  "PrivateInExpression": {
+    "docs": "`#brand in obj` in `class Foo { #brand; static isFoo(obj) { return #brand in obj; } }`.",
+    "body": "struct PrivateInExpression {\n  pub span: oxc_span::Span,\n  pub left: PrivateIdentifier<'a>,\n  pub right: Expression<'a>,\n}"
+  },
+  "Program": {
+    "docs": "Represents the root of a JavaScript abstract syntax tree (AST), containing metadata about the source,\ndirectives, top-level statements, and scope information.",
+    "body": "struct Program {\n  pub span: oxc_span::Span,\n  pub source_type: oxc_span::SourceType,\n  pub source_text: &'a str,\n  pub comments: oxc_allocator::Vec<'a, Comment>,\n  pub hashbang: Option<Hashbang<'a>>,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "PropertyDefinition": {
+    "docs": "",
+    "body": "struct PropertyDefinition {\n  pub span: oxc_span::Span,\n  pub type: PropertyDefinitionType,\n  pub decorators: oxc_allocator::Vec<'a, Decorator<'a>>,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub value: Option<Expression<'a>>,\n  pub computed: bool,\n  pub static: bool,\n  pub declare: bool,\n  pub override: bool,\n  pub optional: bool,\n  pub definite: bool,\n  pub readonly: bool,\n  pub accessibility: Option<TSAccessibility>,\n}"
+  },
+  "PropertyDefinitionType": {
+    "docs": "",
+    "body": "enum PropertyDefinitionType {\n  PropertyDefinition,\n  TSAbstractPropertyDefinition,\n}"
+  },
+  "PropertyKey": {
+    "docs": "Property Key\n\nInherits variants from [`Expression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum PropertyKey {\n  StaticIdentifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  PrivateIdentifier(oxc_allocator::Box<'a, PrivateIdentifier<'a>>),\n  BooleanLiteral(Box<'a, BooleanLiteral>),\n  NullLiteral(Box<'a, NullLiteral>),\n  NumericLiteral(Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(Box<'a, BigIntLiteral<'a>>),\n  RegExpLiteral(Box<'a, RegExpLiteral<'a>>),\n  StringLiteral(Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(Box<'a, TemplateLiteral<'a>>),\n  Identifier(Box<'a, IdentifierReference<'a>>),\n  MetaProperty(Box<'a, MetaProperty<'a>>),\n  Super(Box<'a, Super>),\n  ArrayExpression(Box<'a, ArrayExpression<'a>>),\n  ArrowFunctionExpression(Box<'a, ArrowFunctionExpression<'a>>),\n  AssignmentExpression(Box<'a, AssignmentExpression<'a>>),\n  AwaitExpression(Box<'a, AwaitExpression<'a>>),\n  BinaryExpression(Box<'a, BinaryExpression<'a>>),\n  CallExpression(Box<'a, CallExpression<'a>>),\n  ChainExpression(Box<'a, ChainExpression<'a>>),\n  ClassExpression(Box<'a, Class<'a>>),\n  ConditionalExpression(Box<'a, ConditionalExpression<'a>>),\n  FunctionExpression(Box<'a, Function<'a>>),\n  ImportExpression(Box<'a, ImportExpression<'a>>),\n  LogicalExpression(Box<'a, LogicalExpression<'a>>),\n  NewExpression(Box<'a, NewExpression<'a>>),\n  ObjectExpression(Box<'a, ObjectExpression<'a>>),\n  ParenthesizedExpression(Box<'a, ParenthesizedExpression<'a>>),\n  SequenceExpression(Box<'a, SequenceExpression<'a>>),\n  TaggedTemplateExpression(Box<'a, TaggedTemplateExpression<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n  UnaryExpression(Box<'a, UnaryExpression<'a>>),\n  UpdateExpression(Box<'a, UpdateExpression<'a>>),\n  YieldExpression(Box<'a, YieldExpression<'a>>),\n  PrivateInExpression(Box<'a, PrivateInExpression<'a>>),\n  JSXElement(Box<'a, JSXElement<'a>>),\n  JSXFragment(Box<'a, JSXFragment<'a>>),\n  TSAsExpression(Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(Box<'a, TSSatisfiesExpression<'a>>),\n  TSTypeAssertion(Box<'a, TSTypeAssertion<'a>>),\n  TSNonNullExpression(Box<'a, TSNonNullExpression<'a>>),\n  TSInstantiationExpression(Box<'a, TSInstantiationExpression<'a>>),\n  V8IntrinsicExpression(Box<'a, V8IntrinsicExpression<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "PropertyKeyKind": {
+    "docs": "",
+    "body": "enum PropertyKeyKind {\n  Static(&'a IdentifierName<'a>),\n  Private(&'a PrivateIdentifier<'a>),\n}"
+  },
+  "PropertyKind": {
+    "docs": "Represents the kind of property in an object literal or class.",
+    "body": "enum PropertyKind {\n  Init,\n  Get,\n  Set,\n}"
+  },
+  "RegExp": {
+    "docs": "A regular expression\n\n<https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects>",
+    "body": "struct RegExp {\n  pub pattern: RegExpPattern<'a>,\n  pub flags: RegExpFlags,\n}"
+  },
+  "RegExpFlags": {
+    "docs": "Regular expression flags.\n\n<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#advanced_searching_with_flags>",
+    "body": "struct RegExpFlags {\n\n}"
+  },
+  "RegExpLiteral": {
+    "docs": "Regular expression literal\n\n<https://tc39.es/ecma262/#sec-literals-regular-expression-literals>",
+    "body": "struct RegExpLiteral {\n  pub span: oxc_span::Span,\n  pub regex: RegExp<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n}"
+  },
+  "RegExpPattern": {
+    "docs": "A regular expression pattern\n\nThis pattern may or may not be parsed.",
+    "body": "struct RegExpPattern {\n  pub text: oxc_span::Atom<'a>,\n  pub pattern: Option<oxc_allocator::Box<'a, oxc_regular_expression::ast::Pattern<'a>>>,\n}"
+  },
+  "ReturnStatement": {
+    "docs": "Return Statement",
+    "body": "struct ReturnStatement {\n  pub span: oxc_span::Span,\n  pub argument: Option<Expression<'a>>,\n}"
+  },
+  "SequenceExpression": {
+    "docs": "`a++, b++` in `let a = 1, b = 2; let result = (a++, b++);`\n\nRepresents a sequence expression.",
+    "body": "struct SequenceExpression {\n  pub span: oxc_span::Span,\n  pub expressions: oxc_allocator::Vec<'a, Expression<'a>>,\n}"
+  },
+  "SimpleAssignmentTarget": {
+    "docs": "Simple Assignment Target\n\nInherits variants from [`MemberExpression`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum SimpleAssignmentTarget {\n  AssignmentTargetIdentifier(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  TSAsExpression(oxc_allocator::Box<'a, TSAsExpression<'a>>),\n  TSSatisfiesExpression(oxc_allocator::Box<'a, TSSatisfiesExpression<'a>>),\n  TSNonNullExpression(oxc_allocator::Box<'a, TSNonNullExpression<'a>>),\n  TSTypeAssertion(oxc_allocator::Box<'a, TSTypeAssertion<'a>>),\n  ComputedMemberExpression(Box<'a, ComputedMemberExpression<'a>>),\n  StaticMemberExpression(Box<'a, StaticMemberExpression<'a>>),\n  PrivateFieldExpression(Box<'a, PrivateFieldExpression<'a>>),\n}"
+  },
+  "SpreadElement": {
+    "docs": "`...[1, 2]` in `const arr = [...[1, 2]];`\n\nRepresents a spread element, which can include an argument.",
+    "body": "struct SpreadElement {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}"
+  },
+  "Statement": {
+    "docs": "Statement\n\nInherits variants from [`Declaration`] and [`ModuleDeclaration`].\nSee [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum Statement {\n  BlockStatement(oxc_allocator::Box<'a, BlockStatement<'a>>),\n  BreakStatement(oxc_allocator::Box<'a, BreakStatement<'a>>),\n  ContinueStatement(oxc_allocator::Box<'a, ContinueStatement<'a>>),\n  DebuggerStatement(oxc_allocator::Box<'a, DebuggerStatement>),\n  DoWhileStatement(oxc_allocator::Box<'a, DoWhileStatement<'a>>),\n  EmptyStatement(oxc_allocator::Box<'a, EmptyStatement>),\n  ExpressionStatement(oxc_allocator::Box<'a, ExpressionStatement<'a>>),\n  ForInStatement(oxc_allocator::Box<'a, ForInStatement<'a>>),\n  ForOfStatement(oxc_allocator::Box<'a, ForOfStatement<'a>>),\n  ForStatement(oxc_allocator::Box<'a, ForStatement<'a>>),\n  IfStatement(oxc_allocator::Box<'a, IfStatement<'a>>),\n  LabeledStatement(oxc_allocator::Box<'a, LabeledStatement<'a>>),\n  ReturnStatement(oxc_allocator::Box<'a, ReturnStatement<'a>>),\n  SwitchStatement(oxc_allocator::Box<'a, SwitchStatement<'a>>),\n  ThrowStatement(oxc_allocator::Box<'a, ThrowStatement<'a>>),\n  TryStatement(oxc_allocator::Box<'a, TryStatement<'a>>),\n  WhileStatement(oxc_allocator::Box<'a, WhileStatement<'a>>),\n  WithStatement(oxc_allocator::Box<'a, WithStatement<'a>>),\n  VariableDeclaration(Box<'a, VariableDeclaration<'a>>),\n  FunctionDeclaration(Box<'a, Function<'a>>),\n  ClassDeclaration(Box<'a, Class<'a>>),\n  TSTypeAliasDeclaration(Box<'a, TSTypeAliasDeclaration<'a>>),\n  TSInterfaceDeclaration(Box<'a, TSInterfaceDeclaration<'a>>),\n  TSEnumDeclaration(Box<'a, TSEnumDeclaration<'a>>),\n  TSModuleDeclaration(Box<'a, TSModuleDeclaration<'a>>),\n  TSImportEqualsDeclaration(Box<'a, TSImportEqualsDeclaration<'a>>),\n  ImportDeclaration(Box<'a, ImportDeclaration<'a>>),\n  ExportAllDeclaration(Box<'a, ExportAllDeclaration<'a>>),\n  ExportDefaultDeclaration(Box<'a, ExportDefaultDeclaration<'a>>),\n  ExportNamedDeclaration(Box<'a, ExportNamedDeclaration<'a>>),\n  TSExportAssignment(Box<'a, TSExportAssignment<'a>>),\n  TSNamespaceExportDeclaration(Box<'a, TSNamespaceExportDeclaration<'a>>),\n}"
+  },
+  "StaticBlock": {
+    "docs": "Class Static Block\n\nSee: [MDN - Static initialization blocks](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks)\n\n## Example\n\n```ts\nclass Foo {\n    static {\n        this.someStaticProperty = 5;\n    }\n}\n```",
+    "body": "struct StaticBlock {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "StaticMemberExpression": {
+    "docs": "`console.log` in `console.log('Hello, World!');`\n\nRepresents a static member access expression, which can include an object and a property.",
+    "body": "struct StaticMemberExpression {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub property: IdentifierName<'a>,\n  pub optional: bool,\n}"
+  },
+  "StringLiteral": {
+    "docs": "String literal\n\n<https://tc39.es/ecma262/#sec-literals-string-literals>",
+    "body": "struct StringLiteral {\n  pub span: oxc_span::Span,\n  pub value: oxc_span::Atom<'a>,\n  pub raw: Option<oxc_span::Atom<'a>>,\n  pub lone_surrogates: bool,\n}"
+  },
+  "Super": {
+    "docs": "`super` in `class C extends B { constructor() { super(); } }`\n\nRepresents a super expression.",
+    "body": "struct Super {\n  pub span: oxc_span::Span,\n}"
+  },
+  "SwitchCase": {
+    "docs": "",
+    "body": "struct SwitchCase {\n  pub span: oxc_span::Span,\n  pub test: Option<Expression<'a>>,\n  pub consequent: oxc_allocator::Vec<'a, Statement<'a>>,\n}"
+  },
+  "SwitchStatement": {
+    "docs": "Switch Statement",
+    "body": "struct SwitchStatement {\n  pub span: oxc_span::Span,\n  pub discriminant: Expression<'a>,\n  pub cases: oxc_allocator::Vec<'a, SwitchCase<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TaggedTemplateExpression": {
+    "docs": "`` tag`Hello, ${name}` `` in `` const foo = tag`Hello, ${name}`; ``.\n\nOr with TS type arguments:\n```ts\nconst foo = tag<T>`Hello, ${name}`;\n```",
+    "body": "struct TaggedTemplateExpression {\n  pub span: oxc_span::Span,\n  pub tag: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n  pub quasi: TemplateLiteral<'a>,\n}"
+  },
+  "TemplateElement": {
+    "docs": "`Hello, ` in `` `Hello, ${name}` ``\n\nRepresents a quasi element in a template literal.",
+    "body": "struct TemplateElement {\n  pub span: oxc_span::Span,\n  pub value: TemplateElementValue<'a>,\n  pub tail: bool,\n  pub lone_surrogates: bool,\n}"
+  },
+  "TemplateElementValue": {
+    "docs": "See [template-strings-cooked-vs-raw](https://exploringjs.com/js/book/ch_template-literals.html#template-strings-cooked-vs-raw)",
+    "body": "struct TemplateElementValue {\n  pub raw: oxc_span::Atom<'a>,\n  pub cooked: Option<oxc_span::Atom<'a>>,\n}"
+  },
+  "TemplateLiteral": {
+    "docs": "`` `Hello, ${name}` `` in `` const foo = `Hello, ${name}` ``\n\nRepresents a template literal, which can include quasi elements and expression elements.",
+    "body": "struct TemplateLiteral {\n  pub span: oxc_span::Span,\n  pub quasis: oxc_allocator::Vec<'a, TemplateElement<'a>>,\n  pub expressions: oxc_allocator::Vec<'a, Expression<'a>>,\n}"
+  },
+  "ThisExpression": {
+    "docs": "`this` in `return this.prop;`\n\nRepresents a `this` expression, which is a reference to the current object.",
+    "body": "struct ThisExpression {\n  pub span: oxc_span::Span,\n}"
+  },
+  "ThrowStatement": {
+    "docs": "Throw Statement\n\n# Example\n```ts\nthrow new Error('something went wrong!');\n//    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ argument\n```",
+    "body": "struct ThrowStatement {\n  pub span: oxc_span::Span,\n  pub argument: Expression<'a>,\n}"
+  },
+  "TryStatement": {
+    "docs": "Try Statement\n\n# Example\n```ts\nvar x;\nlet didRun = false;\n\ntry {                 // block\n    x = 1;\n} catch (e) {         // handler\n    console.error(e);\n} finally {           // finalizer\n    didRun = true;\n}\n```",
+    "body": "struct TryStatement {\n  pub span: oxc_span::Span,\n  pub block: oxc_allocator::Box<'a, BlockStatement<'a>>,\n  pub handler: Option<oxc_allocator::Box<'a, CatchClause<'a>>>,\n  pub finalizer: Option<oxc_allocator::Box<'a, BlockStatement<'a>>>,\n}"
+  },
+  "TSAccessibility": {
+    "docs": "",
+    "body": "enum TSAccessibility {\n  Private,\n  Protected,\n  Public,\n}"
+  },
+  "TSAnyKeyword": {
+    "docs": "TypeScript `any` keyword\n\n## Example\n```ts\ntype Foo = any;\n```\n\n## Reference\n* [TypeScript Handbook - Any Type](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#any)",
+    "body": "struct TSAnyKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSArrayType": {
+    "docs": "TypeScript Array Type\n\nDoes not include tuple types, which are stored as [`TSTupleType`].\n\n## Example\n\n```ts\nlet myArray: string[] = [\"hello\", \"world\"];\n```\n\n<https://www.typescriptlang.org/docs/handbook/2/objects.html#the-array-type>",
+    "body": "struct TSArrayType {\n  pub span: oxc_span::Span,\n  pub element_type: TSType<'a>,\n}"
+  },
+  "TSAsExpression": {
+    "docs": "",
+    "body": "struct TSAsExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSBigIntKeyword": {
+    "docs": "",
+    "body": "struct TSBigIntKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSBooleanKeyword": {
+    "docs": "TypeScript `boolean` keyword\n\n## Example\n```ts\ntype Foo = boolean;\n```\n\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean)",
+    "body": "struct TSBooleanKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSCallSignatureDeclaration": {
+    "docs": "",
+    "body": "struct TSCallSignatureDeclaration {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}"
+  },
+  "TSClassImplements": {
+    "docs": "TypeScript Class Interface Heritage\n\n`implements` clause of a [class declaration](Class).\n\n## Example\n```ts\n//                   ___ expression\nclass Foo implements Bar, Baz<number, string> {}\n//            type_arguments ^^^^^^^^^^^^^^\n```",
+    "body": "struct TSClassImplements {\n  pub span: oxc_span::Span,\n  pub expression: TSTypeName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}"
+  },
+  "TSConditionalType": {
+    "docs": "TypeScript Conditional Type\n\n## Example\n```ts\ntype GetProperty<T extends string> =\n//  _ check_type\n    T extends `${string}.${infer U}`  // <- extends_type\n        ? U                           // <- true_type\n        : never;                      // <- false_type\n```\n\n## Reference\n* [TypeScript Handbook - Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html)",
+    "body": "struct TSConditionalType {\n  pub span: oxc_span::Span,\n  pub check_type: TSType<'a>,\n  pub extends_type: TSType<'a>,\n  pub true_type: TSType<'a>,\n  pub false_type: TSType<'a>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSConstructorType": {
+    "docs": "",
+    "body": "struct TSConstructorType {\n  pub span: oxc_span::Span,\n  pub abstract: bool,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n}"
+  },
+  "TSConstructSignatureDeclaration": {
+    "docs": "TypeScript Constructor Signature Declaration",
+    "body": "struct TSConstructSignatureDeclaration {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSEnumBody": {
+    "docs": "Enum Body\n\nThe body of a [`TSEnumDeclaration`].\n\n## Example\n```ts\nenum Foo { A }\n         ^^^^^\nenum Bar\n  { B }\n  ^^^^^\n```",
+    "body": "struct TSEnumBody {\n  pub span: oxc_span::Span,\n  pub members: oxc_allocator::Vec<'a, TSEnumMember<'a>>,\n}"
+  },
+  "TSEnumDeclaration": {
+    "docs": "Enum Declaration\n\n`const_opt` enum `BindingIdentifier` { `EnumBody_opt` }\n\n## Examples\n\n```ts\nenum Foo {\n    A,\n    B\n}\n// `Bar` has `r#const` set to `true`\nconst enum Bar {\n    A,\n    B\n}\n```\n\n## Reference\n* [TypeScript Handbook - Enums](https://www.typescriptlang.org/docs/handbook/enums.html)",
+    "body": "struct TSEnumDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub body: TSEnumBody<'a>,\n  pub const: bool,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSEnumMember": {
+    "docs": "Enum Member\n\nA member property in a [`TSEnumBody`].\n\n## Example\n```ts\nenum Foo {\n//  _ id\n    A = 1,\n//      ^ initializer\n    B // initializer will be `None`\n\n}\n```\n\n## Reference\n* [TypeScript Handbook - Enums](https://www.typescriptlang.org/docs/handbook/enums.html)",
+    "body": "struct TSEnumMember {\n  pub span: oxc_span::Span,\n  pub id: TSEnumMemberName<'a>,\n  pub initializer: Option<Expression<'a>>,\n}"
+  },
+  "TSEnumMemberName": {
+    "docs": "TS Enum Member Name\n\n## Example\n```ts\nenum ValidEnum {\n  identifier,\n  'string',\n  ['computed-string'],\n  [`computed-template`],\n  // These are invalid syntax\n  // `template`,\n  // [computedIdentifier],\n}\n```",
+    "body": "enum TSEnumMemberName {\n  Identifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  String(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ComputedString(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  ComputedTemplateString(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n}"
+  },
+  "TSExportAssignment": {
+    "docs": "Export Assignment in non-module files\n\n`export = foo`",
+    "body": "struct TSExportAssignment {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "TSExternalModuleReference": {
+    "docs": "",
+    "body": "struct TSExternalModuleReference {\n  pub span: oxc_span::Span,\n  pub expression: StringLiteral<'a>,\n}"
+  },
+  "TSFunctionType": {
+    "docs": "TypeScript Function Type\n\n## Examples\n```ts\n//       __________ this is the TSFunctionType\ntype T = () => void\n//             ^^^^ return_type\n```",
+    "body": "struct TSFunctionType {\n  pub span: oxc_span::Span,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSImportEqualsDeclaration": {
+    "docs": "",
+    "body": "struct TSImportEqualsDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub module_reference: TSModuleReference<'a>,\n  pub import_kind: ImportOrExportKind,\n}"
+  },
+  "TSImportType": {
+    "docs": "`import('foo')` in `type Foo = import('foo');`\n\n```ts\n//                       ______________ options\ntype Foo = import('foo', { assert: {} })<T>;\n//                ^^^^^ argument        ^^^ type_arguments\n\ntype Foo = import('foo').bar;\n//                       ^^^ qualifier\n```",
+    "body": "struct TSImportType {\n  pub span: oxc_span::Span,\n  pub argument: TSType<'a>,\n  pub options: Option<oxc_allocator::Box<'a, ObjectExpression<'a>>>,\n  pub qualifier: Option<TSTypeName<'a>>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}"
+  },
+  "TSIndexedAccessType": {
+    "docs": "TypeScript Index Access Type\n\nThis is the type equivalent to expression member access.\n\n## Example\n\n```ts\ntype I1 = Person[\"age\" | \"name\"];\n```\n\n<https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html#handbook-content>",
+    "body": "struct TSIndexedAccessType {\n  pub span: oxc_span::Span,\n  pub object_type: TSType<'a>,\n  pub index_type: TSType<'a>,\n}"
+  },
+  "TSIndexSignature": {
+    "docs": "An index signature within a class, type alias, etc.\n\n## Example\n[playground link](https://oxc-playground.netlify.app/?code=3YCAAIC9gICAgICAgIC6nsrEgtem3AB/pQsrWlLnujiFhkHVtfeFMq5RMD7X5AzJnZ5R/ecQ5KG1FUFjzXvrxFXH0m6HpS+Ob3TC8gQXeRQygA%3D%3D)\n```ts\ntype MapOf<T> = {\n//   _________ parameters (vec with 1 element)\n    [K: string]: T\n//               - type_annotation\n}\n```",
+    "body": "struct TSIndexSignature {\n  pub span: oxc_span::Span,\n  pub parameters: oxc_allocator::Vec<'a, TSIndexSignatureName<'a>>,\n  pub type_annotation: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n  pub readonly: bool,\n  pub static: bool,\n}"
+  },
+  "TSIndexSignatureName": {
+    "docs": "",
+    "body": "struct TSIndexSignatureName {\n  pub span: oxc_span::Span,\n  pub name: oxc_span::Atom<'a>,\n  pub type_annotation: oxc_allocator::Box<'a, TSTypeAnnotation<'a>>,\n}"
+  },
+  "TSInferType": {
+    "docs": "TypeScript `infer` type\n\nUsed in a [`TSConditionalType`] to bind a type parameter when some tested type extends a\ndesired type.\n\n## Example\n```ts\ntype Foo<T> = T extends infer U ? U : never;\n//                            ^ type_parameter\n```\n\n## Reference\n* [TypeScript Handbook - Inferring With Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types)",
+    "body": "struct TSInferType {\n  pub span: oxc_span::Span,\n  pub type_parameter: oxc_allocator::Box<'a, TSTypeParameter<'a>>,\n}"
+  },
+  "TSInstantiationExpression": {
+    "docs": "",
+    "body": "struct TSInstantiationExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_arguments: oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>,\n}"
+  },
+  "TSInterfaceBody": {
+    "docs": "Body of a [`TSInterfaceDeclaration`].",
+    "body": "struct TSInterfaceBody {\n  pub span: oxc_span::Span,\n  pub body: oxc_allocator::Vec<'a, TSSignature<'a>>,\n}"
+  },
+  "TSInterfaceDeclaration": {
+    "docs": "TypeScriptInterface Declaration\n\n  interface `BindingIdentifier` `TypeParameters_opt` `InterfaceExtendsClause_opt` `ObjectType`\n\n## Example\n```ts\n//                       ___ extends\ninterface Foo<T> extends Bar {\n//     id ^^^ ^ type_parameters\n}\n```\n\n## References\n* [TypeScript in 5 Minutes - Interfaces](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html#interfaces)\n* [TypeScript Handbook - Interfaces](https://www.typescriptlang.org/docs/handbook/2/objects.html#interfaces)",
+    "body": "struct TSInterfaceDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub extends: oxc_allocator::Vec<'a, TSInterfaceHeritage<'a>>,\n  pub body: oxc_allocator::Box<'a, TSInterfaceBody<'a>>,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSInterfaceHeritage": {
+    "docs": "",
+    "body": "struct TSInterfaceHeritage {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}"
+  },
+  "TSIntersectionType": {
+    "docs": "TypeScript Intersection Type\n\n## Example\n```ts\ntype Colorful = { color: string };\ntype Circle = { radius: number };\n\n// `types` will be `[Colorful, Circle]`\ntype ColorfulCircle = Colorful & Circle;\n```\n\n## Reference\n* [TypeScript Handbook - Intersection Types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types)",
+    "body": "struct TSIntersectionType {\n  pub span: oxc_span::Span,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}"
+  },
+  "TSIntrinsicKeyword": {
+    "docs": "TypeScript `intrinsic` Keyword\n\nIntrinsic types are built into TypeScript and are not user-defined.\n## Example\n`type Uppercase<T extends character> = intrinsic;`\n\n### References\n* [TypeScript Handbook - Intrinsic String Manipulation\nTypes](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#intrinsic-string-manipulation-types)\n* [microsoft/TypeScript #40580](https://github.com/microsoft/TypeScript/pull/40580)",
+    "body": "struct TSIntrinsicKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSLiteral": {
+    "docs": "A literal in a [`TSLiteralType`].",
+    "body": "enum TSLiteral {\n  BooleanLiteral(oxc_allocator::Box<'a, BooleanLiteral>),\n  NumericLiteral(oxc_allocator::Box<'a, NumericLiteral<'a>>),\n  BigIntLiteral(oxc_allocator::Box<'a, BigIntLiteral<'a>>),\n  StringLiteral(oxc_allocator::Box<'a, StringLiteral<'a>>),\n  TemplateLiteral(oxc_allocator::Box<'a, TemplateLiteral<'a>>),\n  UnaryExpression(oxc_allocator::Box<'a, UnaryExpression<'a>>),\n}"
+  },
+  "TSLiteralType": {
+    "docs": "TypeScript Literal Type\n\nA type that is a literal value. Wraps a [`TSLiteral`].\n\n## Example\n```ts\nconst x: 'foo' = 'foo';\n//       ^^^^^\n\ntype NonZero<N> = N extends 0 ? never : N;\n//                          ^\ntype Three = NonZero<3>;\n//                   ^\n```",
+    "body": "struct TSLiteralType {\n  pub span: oxc_span::Span,\n  pub literal: TSLiteral<'a>,\n}"
+  },
+  "TSMappedType": {
+    "docs": "TypeScript Mapped Type\n\n## Examples\n```ts\ntype Maybe<T> = {\n//        _____ constraint\n    [P in keyof T]?: T[P]\n//   ^ type_parameter\n}\n```\n\n```ts\ntype ReadonlyDefinite<T> = {\n//           _ type parameter\n   readonly [P in keyof T]-?: T[P]\n//                        ^^ `optional` modifier\n};\n```\n\n## References\n* [TypeScript Handbook - Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html)",
+    "body": "struct TSMappedType {\n  pub span: oxc_span::Span,\n  pub type_parameter: oxc_allocator::Box<'a, TSTypeParameter<'a>>,\n  pub name_type: Option<TSType<'a>>,\n  pub type_annotation: Option<TSType<'a>>,\n  pub optional: Option<TSMappedTypeModifierOperator>,\n  pub readonly: Option<TSMappedTypeModifierOperator>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSMappedTypeModifierOperator": {
+    "docs": "",
+    "body": "enum TSMappedTypeModifierOperator {\n  True,\n  Plus,\n  Minus,\n}"
+  },
+  "TSMethodSignature": {
+    "docs": "TypeScript Method Signature\n\nSimilar to a [`TSFunctionType`], but only for method shorthand syntax.\n\n## Example\n```ts\ninterface Foo {\n    bar(a: number): string;\n//  ^^^ key\n}\n```",
+    "body": "struct TSMethodSignature {\n  pub span: oxc_span::Span,\n  pub key: PropertyKey<'a>,\n  pub computed: bool,\n  pub optional: bool,\n  pub kind: TSMethodSignatureKind,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub this_param: Option<oxc_allocator::Box<'a, TSThisParameter<'a>>>,\n  pub params: oxc_allocator::Box<'a, FormalParameters<'a>>,\n  pub return_type: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSMethodSignatureKind": {
+    "docs": "",
+    "body": "enum TSMethodSignatureKind {\n  Method,\n  Get,\n  Set,\n}"
+  },
+  "TSModuleBlock": {
+    "docs": "",
+    "body": "struct TSModuleBlock {\n  pub span: oxc_span::Span,\n  pub directives: oxc_allocator::Vec<'a, Directive<'a>>,\n  pub body: oxc_allocator::Vec<'a, Statement<'a>>,\n}"
+  },
+  "TSModuleDeclaration": {
+    "docs": "TypeScript Module and Namespace Declarations\n\n## Examples\n```ts\ndeclare module 'foo' {\n// kind ^^^^^^ ^^^^^ id\n}\n```\n\n```ts\nnamespace Foo { }\ndeclare namespace Bar { }\n```\n\n```ts\ndeclare global {\n    interface Window {\n       customProp: string;\n    }\n}\n```\n\n## References\n* [TypeScript Handbook - Namespaces](https://www.typescriptlang.org/docs/handbook/2/modules.html#namespaces)\n* [TypeScript Handbook - Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation)\n* [TypeScript Handbook - Global Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation)",
+    "body": "struct TSModuleDeclaration {\n  pub span: oxc_span::Span,\n  pub id: TSModuleDeclarationName<'a>,\n  pub body: Option<TSModuleDeclarationBody<'a>>,\n  pub kind: TSModuleDeclarationKind,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSModuleDeclarationBody": {
+    "docs": "",
+    "body": "enum TSModuleDeclarationBody {\n  TSModuleDeclaration(oxc_allocator::Box<'a, TSModuleDeclaration<'a>>),\n  TSModuleBlock(oxc_allocator::Box<'a, TSModuleBlock<'a>>),\n}"
+  },
+  "TSModuleDeclarationKind": {
+    "docs": "",
+    "body": "enum TSModuleDeclarationKind {\n  Global,\n  Module,\n  Namespace,\n}"
+  },
+  "TSModuleDeclarationName": {
+    "docs": "The name of a TypeScript [namespace or module declaration](TSModuleDeclaration).\n\nNote that it is a syntax error for namespace declarations to have a string literal name.\nModules may have either kind.\n\n## Examples\n```ts\n// TSModuleDeclarationName::StringLiteral\ndeclare module \"*.css\" {\n    const styles: { [key: string]: string };\n    export default styles;\n}\n```\n\n```ts\n// TSModuleDeclarationName::Identifier\nnamespace Foo {\n   export const bar = 42;\n}\n```",
+    "body": "enum TSModuleDeclarationName {\n  Identifier(BindingIdentifier<'a>),\n  StringLiteral(StringLiteral<'a>),\n}"
+  },
+  "TSModuleReference": {
+    "docs": "TS Module Reference\n\nInherits variants from [`TSTypeName`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum TSModuleReference {\n  ExternalModuleReference(oxc_allocator::Box<'a, TSExternalModuleReference<'a>>),\n  IdentifierReference(Box<'a, IdentifierReference<'a>>),\n  QualifiedName(Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n}"
+  },
+  "TSNamedTupleMember": {
+    "docs": "TypeScript Named Tuple Member\n\n## Example\n```ts\ntype Foo = [first: string, second: number];\n//          ^^^^^^^^^^^^^ TSNamedTupleMember\n//    label ^^^^^  ^^^^^^ element_type\n```\n\n## Reference\n* [TypeScript Handbook - Tuple Types](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types)",
+    "body": "struct TSNamedTupleMember {\n  pub span: oxc_span::Span,\n  pub label: IdentifierName<'a>,\n  pub element_type: TSTupleElement<'a>,\n  pub optional: bool,\n}"
+  },
+  "TSNamespaceExportDeclaration": {
+    "docs": "Namespace Export Declaration in declaration files\n\n`export as namespace foo`",
+    "body": "struct TSNamespaceExportDeclaration {\n  pub span: oxc_span::Span,\n  pub id: IdentifierName<'a>,\n}"
+  },
+  "TSNeverKeyword": {
+    "docs": "TypeScript `never` Keyword\n\n## Example\n```ts\ntype Foo<T> = T extends string ? never : T;\n//                               ^^^^^\n```\n\n## Reference\n* [TypeScript Handbook - Advanced Topics](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#advanced-topics)",
+    "body": "struct TSNeverKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSNonNullExpression": {
+    "docs": "",
+    "body": "struct TSNonNullExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n}"
+  },
+  "TSNullKeyword": {
+    "docs": "TypeScript `null` Keyword\n\n## Example\n```ts\ntype Foo = string | null;\n//                  ^^^^\n```\n\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#null-and-undefined)",
+    "body": "struct TSNullKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSNumberKeyword": {
+    "docs": "TypeScript `number` keyword\n\n## Example\n```ts\ntype Foo = boolean;\n```\n\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean)",
+    "body": "struct TSNumberKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSObjectKeyword": {
+    "docs": "",
+    "body": "struct TSObjectKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSOptionalType": {
+    "docs": "TypeScript Optional Type\n\nNote that this does not cover optional object or class properties.\n\n## Example\n```ts\ntype Foo = [number?]\n//          ^^^^^^ type_annotation\n```",
+    "body": "struct TSOptionalType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSParenthesizedType": {
+    "docs": "Parenthesized Type\n\nLike [`ParenthesizedExpression`], but for types.\n\n## Example\n```ts\ntype Foo = (string | number);\n//          ^^^^^^^^^^^^^^^^ type_annotation\n```",
+    "body": "struct TSParenthesizedType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSPropertySignature": {
+    "docs": "TypeScript Property Signature\n\nUsed in [classes](Class), [interfaces](TSInterfaceDeclaration), [mapped types](TSMappedType),\netc. Part of a [`TSSignature`].\n\n## Example\n```ts\ninterface Foo {\n//  ___ key\n    bar: number\n//     ^^^^^^^^ type_annotation\n    baz?: string           // <- optional\n    readonly bang: boolean // <- readonly\n}\n```",
+    "body": "struct TSPropertySignature {\n  pub span: oxc_span::Span,\n  pub computed: bool,\n  pub optional: bool,\n  pub readonly: bool,\n  pub key: PropertyKey<'a>,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}"
+  },
+  "TSQualifiedName": {
+    "docs": "TypeScript Qualified Name\n\nA [type reference](TSTypeReference) qualified by a namespace.\n\n## Example\n```ts\ntype Foo = A.B.C;\n//         ^^^^^\n```",
+    "body": "struct TSQualifiedName {\n  pub span: oxc_span::Span,\n  pub left: TSTypeName<'a>,\n  pub right: IdentifierName<'a>,\n}"
+  },
+  "TSRestType": {
+    "docs": "TypeScript Rest Type\n\n## Example\n```ts\n//                  ___________ this is the rest type\ntype Foo = [number, ...string[]]\n//                     ^^^^^^^^ type_annotation\n```",
+    "body": "struct TSRestType {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSSatisfiesExpression": {
+    "docs": "TypeScript `satisfies` Expression\n\n## Example\n```ts\nconst user = {\n    id: 0,\n    name: 'Alice',\n} satisfies User;\n```\n\n## Reference\n* [TypeScript Handbook - The `satisfies` Operator](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html#the-satisfies-operator)",
+    "body": "struct TSSatisfiesExpression {\n  pub span: oxc_span::Span,\n  pub expression: Expression<'a>,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSSignature": {
+    "docs": "",
+    "body": "enum TSSignature {\n  TSIndexSignature(oxc_allocator::Box<'a, TSIndexSignature<'a>>),\n  TSPropertySignature(oxc_allocator::Box<'a, TSPropertySignature<'a>>),\n  TSCallSignatureDeclaration(oxc_allocator::Box<'a, TSCallSignatureDeclaration<'a>>),\n  TSConstructSignatureDeclaration(oxc_allocator::Box<'a, TSConstructSignatureDeclaration<'a>>),\n  TSMethodSignature(oxc_allocator::Box<'a, TSMethodSignature<'a>>),\n}"
+  },
+  "TSStringKeyword": {
+    "docs": "TypeScript `string` keyword\n\n## Example\n```ts\ntype Foo = string;\n```\n\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#the-primitives-string-number-and-boolean)",
+    "body": "struct TSStringKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSSymbolKeyword": {
+    "docs": "",
+    "body": "struct TSSymbolKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSTemplateLiteralType": {
+    "docs": "TypeScript Template Literal Type\n\n## Example\n```ts\n// Each string part is an element in `quasis`, including empty strings at the beginning/end.\n// In this example, `quasis` has 3 elements: [\"\", \".\", \"\"]\ntype Dot<T, U> = `${T}.${U}`;\n```\n\n## Reference\n* [TypeScript Handbook - Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#handbook-content)",
+    "body": "struct TSTemplateLiteralType {\n  pub span: oxc_span::Span,\n  pub quasis: oxc_allocator::Vec<'a, TemplateElement<'a>>,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}"
+  },
+  "TSThisParameter": {
+    "docs": "TypeScript `this` parameter\n\n## Example\n```ts\ntype T = (this: string, a: number) => void\n//        ^^^^^^^^^^^^\n```\n\n## Reference\n* [TypeScript Handbook - `this` parameters](https://www.typescriptlang.org/docs/handbook/2/functions.html#this-parameters)",
+    "body": "struct TSThisParameter {\n  pub span: oxc_span::Span,\n  pub this_span: oxc_span::Span,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}"
+  },
+  "TSThisType": {
+    "docs": "",
+    "body": "struct TSThisType {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSTupleElement": {
+    "docs": "TS Tuple Element\n\nInherits variants from [`TSType`]. See [`ast` module docs] for explanation of inheritance.\n\nSee [`TSNamedTupleMember`] for named tuple elements.\n\n[`ast` module docs]: `super`",
+    "body": "enum TSTupleElement {\n  TSOptionalType(oxc_allocator::Box<'a, TSOptionalType<'a>>),\n  TSRestType(oxc_allocator::Box<'a, TSRestType<'a>>),\n  TSAnyKeyword(Box<'a, TSAnyKeyword>),\n  TSBigIntKeyword(Box<'a, TSBigIntKeyword>),\n  TSBooleanKeyword(Box<'a, TSBooleanKeyword>),\n  TSIntrinsicKeyword(Box<'a, TSIntrinsicKeyword>),\n  TSNeverKeyword(Box<'a, TSNeverKeyword>),\n  TSNullKeyword(Box<'a, TSNullKeyword>),\n  TSNumberKeyword(Box<'a, TSNumberKeyword>),\n  TSObjectKeyword(Box<'a, TSObjectKeyword>),\n  TSStringKeyword(Box<'a, TSStringKeyword>),\n  TSSymbolKeyword(Box<'a, TSSymbolKeyword>),\n  TSThisType(Box<'a, TSThisType>),\n  TSUndefinedKeyword(Box<'a, TSUndefinedKeyword>),\n  TSUnknownKeyword(Box<'a, TSUnknownKeyword>),\n  TSVoidKeyword(Box<'a, TSVoidKeyword>),\n  TSArrayType(Box<'a, TSArrayType<'a>>),\n  TSConditionalType(Box<'a, TSConditionalType<'a>>),\n  TSConstructorType(Box<'a, TSConstructorType<'a>>),\n  TSFunctionType(Box<'a, TSFunctionType<'a>>),\n  TSImportType(Box<'a, TSImportType<'a>>),\n  TSIndexedAccessType(Box<'a, TSIndexedAccessType<'a>>),\n  TSInferType(Box<'a, TSInferType<'a>>),\n  TSIntersectionType(Box<'a, TSIntersectionType<'a>>),\n  TSLiteralType(Box<'a, TSLiteralType<'a>>),\n  TSMappedType(Box<'a, TSMappedType<'a>>),\n  TSNamedTupleMember(Box<'a, TSNamedTupleMember<'a>>),\n  TSTemplateLiteralType(Box<'a, TSTemplateLiteralType<'a>>),\n  TSTupleType(Box<'a, TSTupleType<'a>>),\n  TSTypeLiteral(Box<'a, TSTypeLiteral<'a>>),\n  TSTypeOperatorType(Box<'a, TSTypeOperator<'a>>),\n  TSTypePredicate(Box<'a, TSTypePredicate<'a>>),\n  TSTypeQuery(Box<'a, TSTypeQuery<'a>>),\n  TSTypeReference(Box<'a, TSTypeReference<'a>>),\n  TSUnionType(Box<'a, TSUnionType<'a>>),\n  TSParenthesizedType(Box<'a, TSParenthesizedType<'a>>),\n  JSDocNullableType(Box<'a, JSDocNullableType<'a>>),\n  JSDocNonNullableType(Box<'a, JSDocNonNullableType<'a>>),\n  JSDocUnknownType(Box<'a, JSDocUnknownType>),\n}"
+  },
+  "TSTupleType": {
+    "docs": "TypeScript Tuple Type\n\n## Example\n\n```ts\ntype `StringNumberPair` = [string, number];\n```\n\n<https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types>",
+    "body": "struct TSTupleType {\n  pub span: oxc_span::Span,\n  pub element_types: oxc_allocator::Vec<'a, TSTupleElement<'a>>,\n}"
+  },
+  "TSType": {
+    "docs": "TypeScript Type\n\nThis is the root-level type for TypeScript types, kind of like [`Expression`] is for\nexpressions.\n\n## Examples\n```ts\n// Foo is a TSTypeAlias\ntype Foo = number | string\n//         ^^^^^^^^^^^^^^^ TSType::TSUnionType\n```",
+    "body": "enum TSType {\n  TSAnyKeyword(oxc_allocator::Box<'a, TSAnyKeyword>),\n  TSBigIntKeyword(oxc_allocator::Box<'a, TSBigIntKeyword>),\n  TSBooleanKeyword(oxc_allocator::Box<'a, TSBooleanKeyword>),\n  TSIntrinsicKeyword(oxc_allocator::Box<'a, TSIntrinsicKeyword>),\n  TSNeverKeyword(oxc_allocator::Box<'a, TSNeverKeyword>),\n  TSNullKeyword(oxc_allocator::Box<'a, TSNullKeyword>),\n  TSNumberKeyword(oxc_allocator::Box<'a, TSNumberKeyword>),\n  TSObjectKeyword(oxc_allocator::Box<'a, TSObjectKeyword>),\n  TSStringKeyword(oxc_allocator::Box<'a, TSStringKeyword>),\n  TSSymbolKeyword(oxc_allocator::Box<'a, TSSymbolKeyword>),\n  TSUndefinedKeyword(oxc_allocator::Box<'a, TSUndefinedKeyword>),\n  TSUnknownKeyword(oxc_allocator::Box<'a, TSUnknownKeyword>),\n  TSVoidKeyword(oxc_allocator::Box<'a, TSVoidKeyword>),\n  TSArrayType(oxc_allocator::Box<'a, TSArrayType<'a>>),\n  TSConditionalType(oxc_allocator::Box<'a, TSConditionalType<'a>>),\n  TSConstructorType(oxc_allocator::Box<'a, TSConstructorType<'a>>),\n  TSFunctionType(oxc_allocator::Box<'a, TSFunctionType<'a>>),\n  TSImportType(oxc_allocator::Box<'a, TSImportType<'a>>),\n  TSIndexedAccessType(oxc_allocator::Box<'a, TSIndexedAccessType<'a>>),\n  TSInferType(oxc_allocator::Box<'a, TSInferType<'a>>),\n  TSIntersectionType(oxc_allocator::Box<'a, TSIntersectionType<'a>>),\n  TSLiteralType(oxc_allocator::Box<'a, TSLiteralType<'a>>),\n  TSMappedType(oxc_allocator::Box<'a, TSMappedType<'a>>),\n  TSNamedTupleMember(oxc_allocator::Box<'a, TSNamedTupleMember<'a>>),\n  TSTemplateLiteralType(oxc_allocator::Box<'a, TSTemplateLiteralType<'a>>),\n  TSThisType(oxc_allocator::Box<'a, TSThisType>),\n  TSTupleType(oxc_allocator::Box<'a, TSTupleType<'a>>),\n  TSTypeLiteral(oxc_allocator::Box<'a, TSTypeLiteral<'a>>),\n  TSTypeOperatorType(oxc_allocator::Box<'a, TSTypeOperator<'a>>),\n  TSTypePredicate(oxc_allocator::Box<'a, TSTypePredicate<'a>>),\n  TSTypeQuery(oxc_allocator::Box<'a, TSTypeQuery<'a>>),\n  TSTypeReference(oxc_allocator::Box<'a, TSTypeReference<'a>>),\n  TSUnionType(oxc_allocator::Box<'a, TSUnionType<'a>>),\n  TSParenthesizedType(oxc_allocator::Box<'a, TSParenthesizedType<'a>>),\n  JSDocNullableType(oxc_allocator::Box<'a, JSDocNullableType<'a>>),\n  JSDocNonNullableType(oxc_allocator::Box<'a, JSDocNonNullableType<'a>>),\n  JSDocUnknownType(oxc_allocator::Box<'a, JSDocUnknownType>),\n}"
+  },
+  "TSTypeAliasDeclaration": {
+    "docs": "TypeScript Type Alias Declaration Statement\n\n## Example\n```ts\n//   _____ id\ntype Maybe<T> = T | null | undefined;\n//         ^ type_parameters\n```",
+    "body": "struct TSTypeAliasDeclaration {\n  pub span: oxc_span::Span,\n  pub id: BindingIdentifier<'a>,\n  pub type_parameters: Option<oxc_allocator::Box<'a, TSTypeParameterDeclaration<'a>>>,\n  pub type_annotation: TSType<'a>,\n  pub declare: bool,\n  pub scope_id: std::cell::Cell<Option<oxc_syntax::scope::ScopeId>>,\n}"
+  },
+  "TSTypeAnnotation": {
+    "docs": "TypeScript Type Annotation\n\nAn annotation on a variable declaration, parameter, etc.\n\n## Example\n```ts\nconst x: number = 1;\n//     ^^^^^^^^\n\nfunction foo(x: number): number { return x; }\n//            ^^^^^^^^ ^^^^^^^^\n```",
+    "body": "struct TSTypeAnnotation {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSTypeAssertion": {
+    "docs": "TypeScript Type Assertion\n\n## Example\n```ts\n//                ___ expression\nlet foo = <number>bar;\n//        ^^^^^^^^ type_annotation\n```",
+    "body": "struct TSTypeAssertion {\n  pub span: oxc_span::Span,\n  pub type_annotation: TSType<'a>,\n  pub expression: Expression<'a>,\n}"
+  },
+  "TSTypeLiteral": {
+    "docs": "",
+    "body": "struct TSTypeLiteral {\n  pub span: oxc_span::Span,\n  pub members: oxc_allocator::Vec<'a, TSSignature<'a>>,\n}"
+  },
+  "TSTypeName": {
+    "docs": "TSTypeName:\n    IdentifierReference\n    this\n    TSTypeName . IdentifierName",
+    "body": "enum TSTypeName {\n  IdentifierReference(oxc_allocator::Box<'a, IdentifierReference<'a>>),\n  QualifiedName(oxc_allocator::Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(oxc_allocator::Box<'a, ThisExpression>),\n}"
+  },
+  "TSTypeOperator": {
+    "docs": "TypeScript Type Operators\n\nIncludes\n- `keyof`\n- `unique`\n- `readonly`\n\n## References\n* [TypeScript Handbook - Keyof Types](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)",
+    "body": "struct TSTypeOperator {\n  pub span: oxc_span::Span,\n  pub operator: TSTypeOperatorOperator,\n  pub type_annotation: TSType<'a>,\n}"
+  },
+  "TSTypeOperatorOperator": {
+    "docs": "Operator in a [`TSTypeOperator`].",
+    "body": "enum TSTypeOperatorOperator {\n  Keyof,\n  Unique,\n  Readonly,\n}"
+  },
+  "TSTypeParameter": {
+    "docs": "TypeScript Type Parameter\n\nThis is a type parameter in a generic type or function.\n\n## Example\n```ts\n//                 ______ constraint\ntype Box<T extends string = 'foo'> = { value: T };\n// name  ^                  ^^^^^ default\n\nfunction add<in T>(a: T, b: T): T { return a + b; }\n//           ^^ in: true\n```\n\n## References\n* [TypeScript Handbook - Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)\n* [TypeScript Handbook - Variance Annotations](https://www.typescriptlang.org/docs/handbook/2/generics.html#variance-annotations)",
+    "body": "struct TSTypeParameter {\n  pub span: oxc_span::Span,\n  pub name: BindingIdentifier<'a>,\n  pub constraint: Option<TSType<'a>>,\n  pub default: Option<TSType<'a>>,\n  pub in: bool,\n  pub out: bool,\n  pub const: bool,\n}"
+  },
+  "TSTypeParameterDeclaration": {
+    "docs": "",
+    "body": "struct TSTypeParameterDeclaration {\n  pub span: oxc_span::Span,\n  pub params: oxc_allocator::Vec<'a, TSTypeParameter<'a>>,\n}"
+  },
+  "TSTypeParameterInstantiation": {
+    "docs": "",
+    "body": "struct TSTypeParameterInstantiation {\n  pub span: oxc_span::Span,\n  pub params: oxc_allocator::Vec<'a, TSType<'a>>,\n}"
+  },
+  "TSTypePredicate": {
+    "docs": "TypeScript Type Predicate\n\n## Examples\n```ts\nfunction isString(x: unknown): x is string {\n//              parameter_name ^    ^^^^^^ type_annotation\n    return typeof x === 'string';\n}\n```\n\n```ts\nfunction assertString(x: unknown): asserts x is string {\n//                                 ^^^^^^^ asserts: true\n    if (typeof x !== 'string') throw new TypeError('x is not a string');\n}\n```\n\n## References\n* [TypeScript Handbook - Type Predicates](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates)\n* [TypeScript Handbook - Assertion Functions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions)",
+    "body": "struct TSTypePredicate {\n  pub span: oxc_span::Span,\n  pub parameter_name: TSTypePredicateName<'a>,\n  pub asserts: bool,\n  pub type_annotation: Option<oxc_allocator::Box<'a, TSTypeAnnotation<'a>>>,\n}"
+  },
+  "TSTypePredicateName": {
+    "docs": "",
+    "body": "enum TSTypePredicateName {\n  Identifier(oxc_allocator::Box<'a, IdentifierName<'a>>),\n  This(TSThisType),\n}"
+  },
+  "TSTypeQuery": {
+    "docs": "Type Query\n\n## Example\n```ts\ntype Foo = typeof Bar;\n```\n\n## Reference\n* [TypeScript Handbook - Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)",
+    "body": "struct TSTypeQuery {\n  pub span: oxc_span::Span,\n  pub expr_name: TSTypeQueryExprName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}"
+  },
+  "TSTypeQueryExprName": {
+    "docs": "TS Type Query Expr Name\n\nInherits variants from [`TSTypeName`]. See [`ast` module docs] for explanation of inheritance.\n\n[`ast` module docs]: `super`",
+    "body": "enum TSTypeQueryExprName {\n  TSImportType(oxc_allocator::Box<'a, TSImportType<'a>>),\n  IdentifierReference(Box<'a, IdentifierReference<'a>>),\n  QualifiedName(Box<'a, TSQualifiedName<'a>>),\n  ThisExpression(Box<'a, ThisExpression>),\n}"
+  },
+  "TSTypeReference": {
+    "docs": "TypeScript Type Reference\n\n## Example\n```ts\ntype A = X;\n//       ^\ntype B = Y.a;\n//       ^^^\ntype C<T> = Z.b<T>;\n//          ^^^^^^\n```",
+    "body": "struct TSTypeReference {\n  pub span: oxc_span::Span,\n  pub type_name: TSTypeName<'a>,\n  pub type_arguments: Option<oxc_allocator::Box<'a, TSTypeParameterInstantiation<'a>>>,\n}"
+  },
+  "TSUndefinedKeyword": {
+    "docs": "TypeScript `undefined` Keyword\n\n## Example\n```ts\ntype Foo = string | undefined;\n//                  ^^^^^^^^^\n```\n\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#null-and-undefined)\n## Reference\n* [TypeScript Handbook - Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#null-and-undefined)",
+    "body": "struct TSUndefinedKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSUnionType": {
+    "docs": "TypeScript Union Type\n\n## Example\n```ts\n string | string[] | (() => string) | { s: string }\n```\n\n## Reference\n* [TypeScript Handbook - Union Types](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html#unions)",
+    "body": "struct TSUnionType {\n  pub span: oxc_span::Span,\n  pub types: oxc_allocator::Vec<'a, TSType<'a>>,\n}"
+  },
+  "TSUnknownKeyword": {
+    "docs": "TypeScript `unknown` Keyword\n\nThis is like `any`, but is not assignable to anything except `any` and `unknown`.\n\n## Example\n```ts\ntype Foo = unknown;\n```\n\n## Reference\n* [TypeScript Handbook - Advanced Topics](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#advanced-topics)",
+    "body": "struct TSUnknownKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "TSVoidKeyword": {
+    "docs": "",
+    "body": "struct TSVoidKeyword {\n  pub span: oxc_span::Span,\n}"
+  },
+  "UnaryExpression": {
+    "docs": "`typeof` in `typeof a === \"string\"`\n\nRepresents a unary expression, which includes an operator and an argument.\nThe following syntaxes are supported: `+a`, `-a`, `~a`, `!a`, `delete a`, `void a`, `typeof a`.",
+    "body": "struct UnaryExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::UnaryOperator,\n  pub argument: Expression<'a>,\n}"
+  },
+  "UpdateExpression": {
+    "docs": "`++i` in `let i = 0; ++i;`\n\nRepresents an update expression, which can include an operator and an argument.\nThe following syntaxes are supported: `++a`, `a++`, `--a`, `a--`.",
+    "body": "struct UpdateExpression {\n  pub span: oxc_span::Span,\n  pub operator: oxc_syntax::operator::UpdateOperator,\n  pub prefix: bool,\n  pub argument: SimpleAssignmentTarget<'a>,\n}"
+  },
+  "V8IntrinsicExpression": {
+    "docs": "Intrinsics in Google's V8 engine, like `%GetOptimizationStatus`.\nSee: [runtime.h](https://github.com/v8/v8/blob/5fe0aa3bc79c0a9d3ad546b79211f07105f09585/src/runtime/runtime.h#L43)",
+    "body": "struct V8IntrinsicExpression {\n  pub span: oxc_span::Span,\n  pub name: IdentifierName<'a>,\n  pub arguments: oxc_allocator::Vec<'a, Argument<'a>>,\n}"
+  },
+  "VariableDeclaration": {
+    "docs": "`let a;` in `let a; a = 1;`\n\nRepresents a variable declaration, which can include a kind, declarations, and modifiers.",
+    "body": "struct VariableDeclaration {\n  pub span: oxc_span::Span,\n  pub kind: VariableDeclarationKind,\n  pub declarations: oxc_allocator::Vec<'a, VariableDeclarator<'a>>,\n  pub declare: bool,\n}"
+  },
+  "VariableDeclarationKind": {
+    "docs": "",
+    "body": "enum VariableDeclarationKind {\n  Var,\n  Let,\n  Const,\n  Using,\n  AwaitUsing,\n}"
+  },
+  "VariableDeclarator": {
+    "docs": "A single variable declaration in a list of [variable declarations](VariableDeclaration).\n\n## Examples\n```ts\n// declarators may or may not have initializers\nlet foo, b = 1;\n//  ^^^ id   ^ init\n```",
+    "body": "struct VariableDeclarator {\n  pub span: oxc_span::Span,\n  pub kind: VariableDeclarationKind,\n  pub id: BindingPattern<'a>,\n  pub init: Option<Expression<'a>>,\n  pub definite: bool,\n}"
+  },
+  "WhileStatement": {
+    "docs": "While Statement",
+    "body": "struct WhileStatement {\n  pub span: oxc_span::Span,\n  pub test: Expression<'a>,\n  pub body: Statement<'a>,\n}"
+  },
+  "WithClause": {
+    "docs": "",
+    "body": "struct WithClause {\n  pub span: oxc_span::Span,\n  pub attributes_keyword: IdentifierName<'a>,\n  pub with_entries: oxc_allocator::Vec<'a, ImportAttribute<'a>>,\n}"
+  },
+  "WithStatement": {
+    "docs": "With Statement",
+    "body": "struct WithStatement {\n  pub span: oxc_span::Span,\n  pub object: Expression<'a>,\n  pub body: Statement<'a>,\n}"
+  },
+  "YieldExpression": {
+    "docs": "Generator Function Definitions",
+    "body": "struct YieldExpression {\n  pub span: oxc_span::Span,\n  pub delegate: bool,\n  pub argument: Option<Expression<'a>>,\n}"
+  }
 }

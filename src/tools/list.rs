@@ -30,18 +30,22 @@ impl ListTool {
         let nodes: HashMap<String, Value> =
             serde_json::from_str(&json_content).map_err(CallToolError::new)?;
 
+        // Helper to extract node data from JSON
+        let extract_node_data = |key: &String, node: &Value| -> Option<(String, String, String)> {
+            node.as_object().and_then(|node_obj| {
+                let docs = node_obj.get("docs").and_then(|v| v.as_str())?;
+                let body = node_obj.get("body").and_then(|v| v.as_str())?;
+                Some((key.clone(), docs.to_string(), body.to_string()))
+            })
+        };
+
         let mut matched_nodes = Vec::new();
         match query {
             // If query is not present, return all nodes
             None => {
                 for (key, node) in &nodes {
-                    if let Some(node_obj) = node.as_object() {
-                        if let (Some(docs), Some(body)) = (
-                            node_obj.get("docs").and_then(|v| v.as_str()),
-                            node_obj.get("body").and_then(|v| v.as_str()),
-                        ) {
-                            matched_nodes.push((key.clone(), docs.to_string(), body.to_string()));
-                        }
+                    if let Some(node_data) = extract_node_data(key, node) {
+                        matched_nodes.push(node_data);
                     }
                 }
             }
@@ -53,17 +57,8 @@ impl ListTool {
                 // First, try to match by key
                 for (key, node) in &nodes {
                     if regex.is_match(key) {
-                        if let Some(node_obj) = node.as_object() {
-                            if let (Some(docs), Some(body)) = (
-                                node_obj.get("docs").and_then(|v| v.as_str()),
-                                node_obj.get("body").and_then(|v| v.as_str()),
-                            ) {
-                                matched_nodes.push((
-                                    key.clone(),
-                                    docs.to_string(),
-                                    body.to_string(),
-                                ));
-                            }
+                        if let Some(node_data) = extract_node_data(key, node) {
+                            matched_nodes.push(node_data);
                         }
                     }
                 }
@@ -71,19 +66,9 @@ impl ListTool {
                 // If no key matches, try to match by docs
                 if matched_nodes.is_empty() {
                     for (key, node) in &nodes {
-                        if let Some(node_obj) = node.as_object() {
-                            if let Some(docs) = node_obj.get("docs").and_then(|v| v.as_str()) {
-                                if regex.is_match(docs) {
-                                    if let Some(body) =
-                                        node_obj.get("body").and_then(|v| v.as_str())
-                                    {
-                                        matched_nodes.push((
-                                            key.clone(),
-                                            docs.to_string(),
-                                            body.to_string(),
-                                        ));
-                                    }
-                                }
+                        if let Some(node_data) = extract_node_data(key, node) {
+                            if regex.is_match(&node_data.1) {
+                                matched_nodes.push(node_data);
                             }
                         }
                     }

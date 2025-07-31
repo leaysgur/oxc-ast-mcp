@@ -6,6 +6,8 @@ use rust_mcp_sdk::{
     schema::{CallToolResult, schema_utils::CallToolError},
 };
 
+use super::StringError;
+
 #[mcp_tool(
     name = "parse",
     title = "A tool that parses JS(X) or TS(X) code into OXC AST.",
@@ -41,16 +43,3 @@ impl ParseTool {
         Ok(CallToolResult::text_content(vec![ast_string.into()]))
     }
 }
-
-// ---
-
-#[derive(Debug)]
-struct StringError(String);
-
-impl std::fmt::Display for StringError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.0)
-    }
-}
-
-impl std::error::Error for StringError {}

@@ -4,9 +4,23 @@ Unofficial+experimental MCP server for OXC parser.
 
 ## Available tools
 
-- `docs(query?)`: Show docs for each OXC AST node, optionally filtered by regex query
-- `parse(code, ext)`: Parse the code snippet and returns AST
-- `check(code, ext, check_semantic = true)`: Check the code and returns syntactic and semantic diagnostics
+### `parse(code, ext)`
+
+Parse the code snippet and returns AST.
+
+![](./_/parse.png)
+
+### `docs(query?)`
+
+Show docs for each OXC AST node, optionally filtered by regex query.
+
+![](./_/docs.png)
+
+### `check(code, ext, check_semantic = true)`
+
+Check the code and returns syntactic and semantic diagnostics.
+
+![](./_/check.png)
 
 ## Expected usecases
 

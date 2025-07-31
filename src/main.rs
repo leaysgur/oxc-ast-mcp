@@ -64,6 +64,7 @@ impl ServerHandler for MyServerHandler {
         let tool_params = MyTools::try_from(request.params).map_err(CallToolError::new)?;
 
         match tool_params {
+            MyTools::ListTool(list_tool) => list_tool.call(),
             MyTools::ParseTool(parse_tool) => parse_tool.call(),
             MyTools::CheckTool(check_tool) => check_tool.call(),
         }

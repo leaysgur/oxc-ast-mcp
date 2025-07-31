@@ -4,6 +4,7 @@ Unofficial+experimental MCP server for OXC parser.
 
 ## Available tools
 
+- `docs(query?)`: Show docs for each OXC AST node, optionally filtered by regex query
 - `parse(code, ext)`: Parse the code snippet and returns AST
 - `check(code, ext, check_semantic = true)`: Check the code and returns syntactic and semantic diagnostics
 

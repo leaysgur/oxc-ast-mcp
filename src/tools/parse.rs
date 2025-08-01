@@ -6,7 +6,7 @@ use rust_mcp_sdk::{
     schema::{CallToolResult, schema_utils::CallToolError},
 };
 
-use super::StringError;
+use super::{MyTool, StringError};
 
 #[mcp_tool(
     name = "parse",
@@ -20,8 +20,8 @@ pub struct ParseTool {
     ext: String,
 }
 
-impl ParseTool {
-    pub fn call(&self) -> Result<CallToolResult, CallToolError> {
+impl MyTool for ParseTool {
+    fn call(&self) -> Result<CallToolResult, CallToolError> {
         let Self { code, ext } = self;
 
         let source_type = SourceType::from_extension(ext).map_err(CallToolError::new)?;

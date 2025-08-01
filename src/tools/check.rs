@@ -9,6 +9,8 @@ use rust_mcp_sdk::{
     schema::{CallToolResult, schema_utils::CallToolError},
 };
 
+use super::MyTool;
+
 #[mcp_tool(
     name = "check",
     title = "A tool that checks JS(X) or TS(X) code has syntactic and/or semantic errors or NOT.",
@@ -22,8 +24,8 @@ pub struct CheckTool {
     check_semantic: Option<bool>,
 }
 
-impl CheckTool {
-    pub fn call(&self) -> Result<CallToolResult, CallToolError> {
+impl MyTool for CheckTool {
+    fn call(&self) -> Result<CallToolResult, CallToolError> {
         let Self {
             code,
             ext,

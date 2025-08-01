@@ -6,7 +6,7 @@ use rust_mcp_sdk::{
 use serde_json::Value;
 use std::collections::HashMap;
 
-use super::StringError;
+use super::{MyTool, StringError};
 
 #[mcp_tool(
     name = "docs",
@@ -19,15 +19,15 @@ pub struct DocsTool {
     query: Option<String>,
 }
 
-impl DocsTool {
-    pub fn call(&self) -> Result<CallToolResult, CallToolError> {
+impl MyTool for DocsTool {
+    fn call(&self) -> Result<CallToolResult, CallToolError> {
         let Self { query } = self;
 
         // Read /ast-nodes.generated.json
         let json_content = include_str!("../../ast-nodes.generated.json");
 
         let nodes: HashMap<String, Value> =
-            serde_json::from_str(&json_content).map_err(CallToolError::new)?;
+            serde_json::from_str(json_content).map_err(CallToolError::new)?;
 
         // Helper to extract node data from JSON
         let extract_node_data = |key: &String, node: &Value| -> Option<(String, String, String)> {
@@ -145,4 +145,3 @@ mod tests {
         }
     }
 }
-

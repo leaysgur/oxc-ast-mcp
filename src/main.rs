@@ -11,7 +11,7 @@ use rust_mcp_sdk::{
     },
 };
 
-use oxc_ast_mcp::tools::MyTools;
+use oxc_ast_mcp::tools::{MyTools, MyTool};
 
 #[tokio::main]
 async fn main() -> SdkResult<()> {
